@@ -1,0 +1,413 @@
+{
+  "generatedAt": "2026-07-14T01:56:19.097Z",
+  "total": 50,
+  "summary": {
+    "review": 9,
+    "reply_ready": 20,
+    "skip": 21
+  },
+  "suspiciousCount": 0,
+  "suspicious": [],
+  "results": [
+    {
+      "number": 1,
+      "source": "历史问题",
+      "question": "柜内高度500，可以装一个碗碟半抽和一个锅具抽吗",
+      "action": "review",
+      "reason": "ai_review",
+      "reply": ""
+    },
+    {
+      "number": 2,
+      "source": "历史问题",
+      "question": "宽度505的柜子，抽屉多宽",
+      "action": "reply_ready",
+      "reason": "no_sender_callback",
+      "reply": "如果按魔法抽计算，505mm 柜宽对应连门 447mm、单开门 422mm、双开门 397mm。具体下单宽度要看连门还是开门；如果是尚酷抽，扣尺不同，需要再确认产品系列和门型。"
+    },
+    {
+      "number": 3,
+      "source": "历史问题",
+      "question": "挂门宝的安装尺寸",
+      "action": "reply_ready",
+      "reason": "no_sender_callback",
+      "reply": "请补充挂门宝的层数和柜体规格。不同规格的产品尺寸、挂盒尺寸和安装极限不同，确认后我再给对应数据。"
+    },
+    {
+      "number": 4,
+      "source": "历史问题",
+      "question": "云狐最小尺寸能做多少",
+      "action": "reply_ready",
+      "reason": "no_sender_callback",
+      "reply": "云狐标品最小宽度500mm，定制最小宽度450mm。小于500mm的宽度只按定制口径，不作为标品宽度。"
+    },
+    {
+      "number": 5,
+      "source": "历史问题",
+      "question": "转交小怪物的安装尺寸",
+      "action": "reply_ready",
+      "reason": "no_sender_callback",
+      "reply": "请确认是转角小怪物（巧翼阁）还是全开小怪物（展翼阁）；两款安装尺寸和结构不同。"
+    },
+    {
+      "number": 6,
+      "source": "历史问题",
+      "question": "帮我写一个碗碟半抽的介绍话术",
+      "action": "reply_ready",
+      "reason": "no_sender_callback",
+      "reply": "如果家里做饭频率高，碗、盘/碟和餐具都要放在同一个地柜里，普通整抽很容易变成拿一件带乱一片。碗碟半抽的思路是把同一个抽屉横向分成两类功能：一边保留通高空间放盘/碟，另一边用半抽分层，下层碗架放碗，上层薄内抽放低矮餐具或小件。这样既照顾盘/碟需要的竖向空间，也让碗和小餐具更容易分区、取用和放回。\n\n它和普通整抽混放的区别，是不同高度的餐具都有固定位置；和全宽碗碟抽中抽的区别，是它还保留了通高半边来放盘/碟。具体选 230H 还是 250H、柜体是否适配，还要结合餐具尺寸、柜体条件和产品资料确认。"
+    },
+    {
+      "number": 7,
+      "source": "历史问题",
+      "question": "请按客户能看懂的话术回复：450轨道，抽深可不可以做460？",
+      "action": "reply_ready",
+      "reason": "no_sender_callback",
+      "reply": "450轨道对应的抽屉深度定制范围是轨道+5到轨道+55，也就是455到505毫米。460毫米在这个范围内，所以可以做。"
+    },
+    {
+      "number": 8,
+      "source": "历史问题",
+      "question": "250的轨道现在还有吗",
+      "action": "skip",
+      "reason": "customer_service_or_order_block",
+      "reply": ""
+    },
+    {
+      "number": 9,
+      "source": "历史问题",
+      "question": "帮我写一个中枢阁的介绍话术",
+      "action": "reply_ready",
+      "reason": "no_sender_callback",
+      "reply": "你想介绍的是哪一款中枢阁？请确认是普通地柜款、中枢阁水槽款，还是餐边层盒款；不同款的结构和使用场景不一样，确认后我再按对应产品写介绍话术。"
+    },
+    {
+      "number": 10,
+      "source": "历史问题",
+      "question": "中枢阁的水槽款，安装尺寸",
+      "action": "reply_ready",
+      "reason": "no_sender_callback",
+      "reply": "中枢阁水槽款（水槽侧拉/水槽侧拉架/水槽中枢阁/中枢阁（水槽款）/中枢阁2层水槽侧拉架）尺寸如下：\n产品尺寸：\n抽屉宽度：250mm（抽屉+轨道）\n抽屉深度：485mm\n抽屉高度：465mm（竖抽）\n挂盒尺寸：宽460*深115*高85mm（盒内：447*100*75mm）\n挂盒尺寸：宽460*深215*高85mm（盒内：447*200*75mm）标准产品安装极限尺寸：（假设铰链厚度为Xmm）\n极限安装宽度：280mm（X≤27mm）（抽屉宽度+轨道+轨道垫块25mm+误差值5mm，间隙最小值）\n极限安装深度：490mm\n极限安装高度：465mm\n承重：10KG；单个挂盒5KG\n对应安装尺寸示意图也一起发你。"
+    },
+    {
+      "number": 11,
+      "source": "历史问题",
+      "question": "翼枢阁7层需要多高的柜子",
+      "action": "reply_ready",
+      "reason": "no_sender_callback",
+      "reply": "翼枢阁7层安装尺寸如下：\n规格/口径：7层,450/500/600柜体\n七层产品宽度：405/455/555mm\n七层产品深度：330/480/530mm\n产品高度：1765mm（产品整体高度）\n产品内盒体积：宽361/411/511*深118/218/268*高85/115mm（盒内宽345/395/495*深100/200/250*高75/105mm）（不含挂钩）\n产品外盒体积：宽301/361/461*深118/268*高85/115mm（盒内宽295/345/445*深100/250*高75/105mm）（不含挂钩）\n七层极限安装宽度：414/464/564mm\n极限安装深度：335/485/535mm（产品深度+误差值5mm）\n极限安装高度：1780mm（产品高度+侧滑盖盒操作空间20mm）\n承重：30KG；单个挂盒5KG\n对应安装尺寸示意图也一起发你。"
+    },
+    {
+      "number": 12,
+      "source": "历史问题",
+      "question": "请问 ：Mate2.0 上面定制化妆品首饰抽，全是开门式的，找不到抽屉式的呢？",
+      "action": "skip",
+      "reason": "product_platform_operation_question",
+      "reply": ""
+    },
+    {
+      "number": 13,
+      "source": "历史问题",
+      "question": "6.1号之后，我们会让客户分开来打款，严格执行公司制度。因为之前有的单，有定制柜和酷太，有的时候客户会打在一起。",
+      "action": "reply_ready",
+      "reason": "no_sender_callback",
+      "reply": "SKIP"
+    },
+    {
+      "number": 14,
+      "source": "历史问题",
+      "question": "中枢阁挂盒多少",
+      "action": "reply_ready",
+      "reason": "no_sender_callback",
+      "reply": "请先确认具体是哪款中枢阁，以及层数或柜体规格。普通地柜款、水槽款和餐边层盒款的方向、挂盒与安装尺寸不同，不能用一个款式的参数代替整个中枢阁系列。"
+    },
+    {
+      "number": 15,
+      "source": "历史问题",
+      "question": "中枢阁挂盒具体价格我这边没有，发货时间需要查订单才能确认。这两个问题建议直接联系对应的销售负责人处理。",
+      "action": "reply_ready",
+      "reason": "no_sender_callback",
+      "reply": "请先确认具体是哪款中枢阁，以及层数或柜体规格。普通地柜款、水槽款和餐边层盒款的方向、挂盒与安装尺寸不同，不能用一个款式的参数代替整个中枢阁系列。"
+    },
+    {
+      "number": 16,
+      "source": "历史问题",
+      "question": "巧翼阁限位器卡在轨道前端侧板位置，对准槽口推到底就行，装的时候注意方向别反了。中枢阁200柜挂盒的具体尺寸我这边没有，建议找对应销售负责人确认。",
+      "action": "skip",
+      "reason": "ai_skip",
+      "reply": ""
+    },
+    {
+      "number": 17,
+      "source": "历史问题",
+      "question": "中枢阁挂盒尺寸是多少",
+      "action": "reply_ready",
+      "reason": "no_sender_callback",
+      "reply": "请先确认具体是哪款中枢阁，以及层数或柜体规格。普通地柜款、水槽款和餐边层盒款的方向、挂盒与安装尺寸不同，不能用一个款式的参数代替整个中枢阁系列。"
+    },
+    {
+      "number": 18,
+      "source": "历史问题",
+      "question": "中枢阁挂盒的具体尺寸我这边没有，建议联系对应销售负责人确认。",
+      "action": "reply_ready",
+      "reason": "no_sender_callback",
+      "reply": "请先确认具体是哪款中枢阁，以及层数或柜体规格。普通地柜款、水槽款和餐边层盒款的方向、挂盒与安装尺寸不同，不能用一个款式的参数代替整个中枢阁系列。"
+    },
+    {
+      "number": 19,
+      "source": "历史问题",
+      "question": "中枢阁挂盒尺寸：\\n- 2层/3层款：460×115×85mm（盒内447×100×75）\\n- 7层款小盒：460×215×85mm（盒内447×200×75）\\n- 7层款大盒：460×215×115mm（盒内447×200×105）",
+      "action": "skip",
+      "reason": "ai_skip",
+      "reply": ""
+    },
+    {
+      "number": 20,
+      "source": "历史问题",
+      "question": "中枢阁挂盒的具体尺寸我这边没有，建议直接联系对应销售负责人确认。",
+      "action": "reply_ready",
+      "reason": "no_sender_callback",
+      "reply": "请先确认具体是哪款中枢阁，以及层数或柜体规格。普通地柜款、水槽款和餐边层盒款的方向、挂盒与安装尺寸不同，不能用一个款式的参数代替整个中枢阁系列。"
+    },
+    {
+      "number": 21,
+      "source": "历史问题",
+      "question": "发货时间需要查具体订单，中枢阁挂盒价格我这边没有，建议直接联系对应的销售负责人确认。",
+      "action": "reply_ready",
+      "reason": "no_sender_callback",
+      "reply": "请先确认具体是哪款中枢阁，以及层数或柜体规格。普通地柜款、水槽款和餐边层盒款的方向、挂盒与安装尺寸不同，不能用一个款式的参数代替整个中枢阁系列。"
+    },
+    {
+      "number": 22,
+      "source": "历史问题",
+      "question": "中枢阁2/3层挂盒尺寸是460×115×85mm（盒内447×100×75）；7层小盒460×215×85mm（盒内447×200×75），大盒460×215×115mm（盒内447×200×105）。",
+      "action": "skip",
+      "reason": "ai_skip",
+      "reply": ""
+    },
+    {
+      "number": 23,
+      "source": "历史问题",
+      "question": "中枢阁挂盒的具体尺寸我这边没有，建议直接联系对应的销售负责人确认。",
+      "action": "reply_ready",
+      "reason": "no_sender_callback",
+      "reply": "请先确认具体是哪款中枢阁，以及层数或柜体规格。普通地柜款、水槽款和餐边层盒款的方向、挂盒与安装尺寸不同，不能用一个款式的参数代替整个中枢阁系列。"
+    },
+    {
+      "number": 24,
+      "source": "历史问题",
+      "question": "巧翼阁限位器卡在轨道前端侧板位置，对准槽口推到底就行，注意方向别装反。",
+      "action": "skip",
+      "reason": "ai_skip",
+      "reply": ""
+    },
+    {
+      "number": 25,
+      "source": "历史问题",
+      "question": "巧翼阁限位器卡在轨道前端侧板位置，对准槽口推到底就行，装的时候注意方向别反了。",
+      "action": "skip",
+      "reason": "ai_skip",
+      "reply": ""
+    },
+    {
+      "number": 26,
+      "source": "历史问题",
+      "question": "260的高度可以装倾松抽吗",
+      "action": "review",
+      "reason": "ai_review",
+      "reply": ""
+    },
+    {
+      "number": 27,
+      "source": "历史问题",
+      "question": "260mm装不了倾松抽，倾松抽安装高度至少需要290mm（270 + 轨道20mm），260矮了。",
+      "action": "reply_ready",
+      "reason": "no_sender_callback",
+      "reply": "倾松抽尺寸如下：\n基础信息：\n规格/口径：高度：270\n整产品尺寸：\n抽屉宽度：742mm（计算公式：800-18*2-11*2=742）\n抽屉深度：480mm（三代魔法抽抽屉深度统一）\n抽屉高度：270mm（组合抽）\n整产品安装极限尺寸：\n极限安装宽度：760mm（742+11*2=764，轨道卡码各向内移2mm）\n极限安装深度：500mm（抽屉深度+轨道挂钩深度20mm）\n极限安装深度：485mm（背板开孔，轨道末端伸出背板）\n极限安装高度：290mm（抽屉高度+轨道高度20mm）\n上抽尺寸：\n抽屉宽度：742mm\n极限安装宽度：760mm\n抽内宽度：722mm\n抽屉深度：293mm\n极限安装深度：380mm\n抽内深度：235-275mm\n抽屉高度：70mm\n极限安装高度：75mm\n抽内高度：45mm\n下抽尺寸：\n抽屉宽度：742mm\n极限安装宽度：760mm\n抽内宽度：692-722mm\n抽屉深度：480mm\n极限安装深度：500mm\n抽内深度：322mm\n抽屉高度：230mm\n极限安装高度：250mm\n抽内高度：174mm\n挂盒尺寸：\n宽度：692mm\n极限安装宽度：760mm\n抽内宽度：676mm\n注意：窄框门双侧框最小110mm（覆盖连接件）\n深度：149mm\n极限安装深度：380mm\n抽内深度：130mm\n高度：194mm\n极限安装高度：75mm\n抽内高度：184mm\n对应安装尺寸示意图也一起发你。"
+    },
+    {
+      "number": 28,
+      "source": "历史问题",
+      "question": "中枢阁区分左右吗",
+      "action": "reply_ready",
+      "reason": "no_sender_callback",
+      "reply": "请先确认具体是哪款中枢阁，以及层数或柜体规格。普通地柜款、水槽款和餐边层盒款的方向、挂盒与安装尺寸不同，不能用一个款式的参数代替整个中枢阁系列。"
+    },
+    {
+      "number": 29,
+      "source": "历史问题",
+      "question": "中枢阁7层分左右装，下单时要选方向；2层和3层不区分左右。",
+      "action": "skip",
+      "reason": "customer_service_or_order_block",
+      "reply": ""
+    },
+    {
+      "number": 30,
+      "source": "历史问题",
+      "question": "锅具抽可以定深度370吗",
+      "action": "review",
+      "reason": "ai_review",
+      "reply": ""
+    },
+    {
+      "number": 31,
+      "source": "历史问题",
+      "question": "请问下，柜内净深415，轨道做350的，抽屉能做400的吗？这样柜内安装尺寸够吗？",
+      "action": "review",
+      "reason": "ai_review",
+      "reply": ""
+    },
+    {
+      "number": 32,
+      "source": "历史问题",
+      "question": "柜内净深415，轨道350的话抽屉可以做400深，安装深度需要400，415够用，没问题。",
+      "action": "review",
+      "reason": "ai_review",
+      "reply": ""
+    },
+    {
+      "number": 33,
+      "source": "历史问题",
+      "question": "轨道350可以做400深的抽屉，安装极限需要415，你柜内净深刚好415，卡得比较紧但能装。",
+      "action": "review",
+      "reason": "ai_review",
+      "reply": ""
+    },
+    {
+      "number": 34,
+      "source": "历史问题",
+      "question": "轨道350可以做400深的抽屉，安装极限是415，你柜内净深刚好415，理论上能装但非常紧。",
+      "action": "skip",
+      "reason": "review_customer_service_block",
+      "reply": ""
+    },
+    {
+      "number": 35,
+      "source": "历史问题",
+      "question": "您可以定制70H抽，另外下单底部的钢丝挂架自行组合搭配使用",
+      "action": "skip",
+      "reason": "customer_service_or_order_block",
+      "reply": ""
+    },
+    {
+      "number": 36,
+      "source": "历史问题",
+      "question": "@季炎(季炎（超威）) 那个升降机有其他的解决办法吗？客户不同意门板上开孔 底板已经开过孔了",
+      "action": "skip",
+      "reason": "review_customer_service_block",
+      "reply": ""
+    },
+    {
+      "number": 37,
+      "source": "历史问题",
+      "question": "轨道350，产品深度360",
+      "action": "skip",
+      "reason": "review_customer_service_block",
+      "reply": ""
+    },
+    {
+      "number": 38,
+      "source": "历史问题",
+      "question": "140的内衣抽深度可以定制吗",
+      "action": "review",
+      "reason": "ai_review",
+      "reply": ""
+    },
+    {
+      "number": 39,
+      "source": "历史问题",
+      "question": "定制的四代碗碟半抽能不能碗碟位置互换一下",
+      "action": "skip",
+      "reason": "customer_service_or_order_block",
+      "reply": ""
+    },
+    {
+      "number": 40,
+      "source": "历史问题",
+      "question": "需要的，定制基础+400会员价，涉及更改结构，所以走特殊定制，比较麻烦，对应你们的成本也就比较高了",
+      "action": "skip",
+      "reason": "ai_skip",
+      "reply": ""
+    },
+    {
+      "number": 41,
+      "source": "历史问题",
+      "question": "有两个抽屉尺寸错了，需要返厂再改下，怎么申请？",
+      "action": "skip",
+      "reason": "customer_service_or_order_block",
+      "reply": ""
+    },
+    {
+      "number": 42,
+      "source": "历史问题",
+      "question": "产品型号和要修改的尺寸也给下",
+      "action": "skip",
+      "reason": "ai_skip",
+      "reply": ""
+    },
+    {
+      "number": 43,
+      "source": "历史问题",
+      "question": "@陈德茂(陈德茂) 图纸深度是347，下单深度是447.按照图纸为准了哈",
+      "action": "skip",
+      "reason": "customer_service_or_order_block",
+      "reply": ""
+    },
+    {
+      "number": 44,
+      "source": "历史问题",
+      "question": "@芮艳萍(梦芮) 停机坪尺寸现在可以定制吗",
+      "action": "reply_ready",
+      "reason": "no_sender_callback",
+      "reply": "停机坪（90H）支持宽/深/高定制。标准规格为宽542×深480×高93mm，安装尺寸按产品尺寸+20mm计算。定制时直接按实际需要的宽、深、高下单即可。"
+    },
+    {
+      "number": 45,
+      "source": "历史问题",
+      "question": "@梅梦婷(梦莱（梅梦婷）) 问下尚酷的可以做切角抽吗",
+      "action": "skip",
+      "reason": "customer_service_or_order_block",
+      "reply": ""
+    },
+    {
+      "number": 46,
+      "source": "历史问题",
+      "question": "@李寒(梦寒) 抽屉深度可以做240吗",
+      "action": "review",
+      "reason": "ai_review",
+      "reply": ""
+    },
+    {
+      "number": 47,
+      "source": "历史问题",
+      "question": "抽屉深度特殊定制范围：",
+      "action": "review",
+      "reason": "ai_review",
+      "reply": ""
+    },
+    {
+      "number": 48,
+      "source": "历史问题",
+      "question": "定制最小的抽屉深度255",
+      "action": "skip",
+      "reason": "review_customer_service_block",
+      "reply": ""
+    },
+    {
+      "number": 49,
+      "source": "历史问题",
+      "question": "这个高度",
+      "action": "skip",
+      "reason": "ai_skip",
+      "reply": ""
+    },
+    {
+      "number": 50,
+      "source": "历史问题",
+      "question": "5-6层都是可以的  如果物品高度低  数量多  抽屉还能增加",
+      "action": "skip",
+      "reason": "ai_skip",
+      "reply": ""
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+name: kutai-auto-reply
+
+services:
+  kutai-dingtalk-bot:
+    build: .
+    container_name: kutai-dingtalk-bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      DIFY_BASE_URL: http://host.docker.internal:8088
+      BOT_AUDIT_LOG_FILE: /app/data/bot-reply-audit.jsonl
+      RUNTIME_DIR: /app/runtime
+      PRODUCT_KB_ROOT: /app/knowledge
+      PRODUCT_MATRIX_DIR: /app/knowledge/01_MD章节矩阵
+      PRODUCT_DATA_DIR: /app/knowledge/05_数据与图片
+      IMAGE_LIBRARY_ROOT: /app/images
+      AI_PLANNER_SOURCE_DIR: /app/knowledge
+      LLM_WIKI_ROOT: /app/knowledge/LLM-Wiki
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./data:/app/data
+      - ./runtime:/app/runtime
+      - ../产品知识库:/app/knowledge:ro
+      - ../图片库:/app/images:ro
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  llm-wiki-watcher:
+    build: .
+    container_name: kutai-llm-wiki-watcher
+    restart: unless-stopped
+    command: ["node", "tools/watch-llm-wiki.js"]
+    healthcheck:
+      disable: true
+    environment:
+      KNOWLEDGE_ROOT: /app/knowledge
+      LLM_WIKI_ROOT: /app/knowledge/LLM-Wiki
+      WIKI_WATCH_INTERVAL_MS: "3000"
+      WIKI_WATCH_DEBOUNCE_MS: "2500"
+    volumes:
+      - ../产品知识库:/app/knowledge

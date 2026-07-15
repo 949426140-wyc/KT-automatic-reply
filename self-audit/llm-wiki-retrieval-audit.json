@@ -1,0 +1,1907 @@
+{
+  "summary": {
+    "generatedAt": "2026-07-14T01:14:55.428Z",
+    "indexedPages": 851,
+    "totalQuestions": 56,
+    "withEvidence": 52,
+    "withoutEvidence": 4,
+    "lowConfidence": 0,
+    "coverage": 92.86
+  },
+  "results": [
+    {
+      "question": "柜内高度500，可以装一个碗碟半抽和一个锅具抽吗",
+      "hasEvidence": true,
+      "topScore": 163.43,
+      "hits": [
+        {
+          "title": "碗碟抽半抽（230/250H）",
+          "pageType": "application",
+          "score": 163.43,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0014_一、抽屉系列_四代魔法抽_碗碟抽半抽（230_250H）.md"
+        },
+        {
+          "title": "消毒柜碗碟抽半抽（230H）",
+          "pageType": "application",
+          "score": 161.14,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0219_一、抽屉系列_四代魔法抽_消毒柜碗碟抽半抽（230H）.md"
+        },
+        {
+          "title": "半抽（碗碟抽半抽 / 碗碟抽中抽半抽 / 碗碟半抽）",
+          "pageType": "fact",
+          "score": 152.14,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0061_抽屉产品_半抽（碗碟抽半抽 _ 碗碟抽中抽半抽 _ 碗碟半抽）.md"
+        },
+        {
+          "title": "碗碟半抽别名与尺寸公式精准口径",
+          "pageType": "fact",
+          "score": 106.14,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0003_尺寸与安装_碗碟半抽别名与尺寸公式精准口径.md"
+        },
+        {
+          "title": "四代魔法抽",
+          "pageType": "fact",
+          "score": 105.29,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0038_抽屉产品_四代魔法抽.md"
+        }
+      ]
+    },
+    {
+      "question": "宽度505的柜子，抽屉多宽",
+      "hasEvidence": true,
+      "topScore": 87.91,
+      "hits": [
+        {
+          "title": "倾松抽",
+          "pageType": "fact",
+          "score": 87.91,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0251_极限安装_倾松抽.md"
+        },
+        {
+          "title": "尚酷百纳阁",
+          "pageType": "fact",
+          "score": 87.91,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0269_极限安装_尚酷百纳阁.md"
+        },
+        {
+          "title": "尚酷抽抽屉式",
+          "pageType": "fact",
+          "score": 87.91,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0252_极限安装_尚酷抽抽屉式.md"
+        },
+        {
+          "title": "尚酷抽开门式",
+          "pageType": "fact",
+          "score": 87.91,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0253_极限安装_尚酷抽开门式.md"
+        },
+        {
+          "title": "尚酷高柜收纳抽",
+          "pageType": "fact",
+          "score": 87.91,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0277_极限安装_尚酷高柜收纳抽.md"
+        }
+      ]
+    },
+    {
+      "question": "挂门宝的安装尺寸",
+      "hasEvidence": true,
+      "topScore": 211.71,
+      "hits": [
+        {
+          "title": "挂门宝",
+          "pageType": "fact",
+          "score": 211.71,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0158_置物架_挂门宝.md"
+        },
+        {
+          "title": "尺寸",
+          "pageType": "fact",
+          "score": 208.29,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0104_尺寸与安装_尺寸.md"
+        },
+        {
+          "title": "安装",
+          "pageType": "fact",
+          "score": 206.29,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0200_尺寸与安装_安装.md"
+        },
+        {
+          "title": "挂门宝(高柜款)",
+          "pageType": "application",
+          "score": 143.29,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0358_三、置物架系列_高柜_挂门宝(高柜款).md"
+        },
+        {
+          "title": "高柜置物架",
+          "pageType": "fact",
+          "score": 118.71,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0151_置物架_高柜置物架.md"
+        }
+      ]
+    },
+    {
+      "question": "云狐最小尺寸能做多少",
+      "hasEvidence": true,
+      "topScore": 344,
+      "hits": [
+        {
+          "title": "云狐",
+          "pageType": "application",
+          "score": 344,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0312_二、升降机系列_吊柜_云狐.md"
+        },
+        {
+          "title": "尺寸",
+          "pageType": "fact",
+          "score": 127.67,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0104_尺寸与安装_尺寸.md"
+        },
+        {
+          "title": "云狐升降机（核心主力）",
+          "pageType": "fact",
+          "score": 85,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0110_升降机_云狐升降机（核心主力）.md"
+        },
+        {
+          "title": "产品矩阵",
+          "pageType": "fact",
+          "score": 82.33,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0108_升降机_产品矩阵.md"
+        },
+        {
+          "title": "二、升降机系列",
+          "pageType": "fact",
+          "score": 82.33,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0040_升降机_二、升降机系列.md"
+        }
+      ]
+    },
+    {
+      "question": "转交小怪物的安装尺寸",
+      "hasEvidence": true,
+      "topScore": 206,
+      "hits": [
+        {
+          "title": "尺寸",
+          "pageType": "fact",
+          "score": 206,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0104_尺寸与安装_尺寸.md"
+        },
+        {
+          "title": "安装",
+          "pageType": "fact",
+          "score": 204,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0200_尺寸与安装_安装.md"
+        },
+        {
+          "title": "橱衣柜小精灵",
+          "pageType": "fact",
+          "score": 109.33,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0050_收纳模块与电子设备_橱衣柜小精灵.md"
+        },
+        {
+          "title": "子母联动机构（独立配件，非倾松抽专属）",
+          "pageType": "fact",
+          "score": 109.33,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0063_抽屉产品_子母联动机构（独立配件，非倾松抽专属）.md"
+        },
+        {
+          "title": "置物架系列",
+          "pageType": "fact",
+          "score": 73.33,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0033_置物架_置物架系列.md"
+        }
+      ]
+    },
+    {
+      "question": "帮我写一个碗碟半抽的介绍话术",
+      "hasEvidence": true,
+      "topScore": 116.23,
+      "hits": [
+        {
+          "title": "碗碟抽半抽（230/250H）",
+          "pageType": "application",
+          "score": 116.23,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0014_一、抽屉系列_四代魔法抽_碗碟抽半抽（230_250H）.md"
+        },
+        {
+          "title": "消毒柜碗碟抽半抽（230H）",
+          "pageType": "application",
+          "score": 116.23,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0219_一、抽屉系列_四代魔法抽_消毒柜碗碟抽半抽（230H）.md"
+        },
+        {
+          "title": "半抽（碗碟抽半抽 / 碗碟抽中抽半抽 / 碗碟半抽）",
+          "pageType": "fact",
+          "score": 107.23,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0061_抽屉产品_半抽（碗碟抽半抽 _ 碗碟抽中抽半抽 _ 碗碟半抽）.md"
+        },
+        {
+          "title": "抽屉系列",
+          "pageType": "fact",
+          "score": 80.69,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0031_抽屉产品_抽屉系列.md"
+        },
+        {
+          "title": "碗碟半抽别名与尺寸公式精准口径",
+          "pageType": "fact",
+          "score": 61.23,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0003_尺寸与安装_碗碟半抽别名与尺寸公式精准口径.md"
+        }
+      ]
+    },
+    {
+      "question": "请按客户能看懂的话术回复：450轨道，抽深可不可以做460？",
+      "hasEvidence": true,
+      "topScore": 94.31,
+      "hits": [
+        {
+          "title": "轨道角码与抽屉深度定制范围",
+          "pageType": "fact",
+          "score": 94.31,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0235_尺寸与安装_轨道角码与抽屉深度定制范围.md"
+        },
+        {
+          "title": "适配柜宽",
+          "pageType": "fact",
+          "score": 90.69,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0078_抽屉产品_适配柜宽.md"
+        },
+        {
+          "title": "产品理念摘要",
+          "pageType": "fact",
+          "score": 87.85,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0029_检索导航与产品体系_产品理念摘要.md"
+        },
+        {
+          "title": "意图路由表",
+          "pageType": "planning",
+          "score": 73.23,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/01_规划师设计精准知识卡/0009_检索导航与产品体系_意图路由表.md"
+        },
+        {
+          "title": "尺寸规格",
+          "pageType": "fact",
+          "score": 72.69,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0096_尺寸与安装_尺寸规格.md"
+        }
+      ]
+    },
+    {
+      "question": "250的轨道现在还有吗",
+      "hasEvidence": true,
+      "topScore": 57.2,
+      "hits": [
+        {
+          "title": "安装深度与轨道系列规则",
+          "pageType": "fact",
+          "score": 57.2,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0233_尺寸与安装_安装深度与轨道系列规则.md"
+        },
+        {
+          "title": "轨道角码与抽屉深度定制范围",
+          "pageType": "fact",
+          "score": 57.2,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0235_尺寸与安装_轨道角码与抽屉深度定制范围.md"
+        },
+        {
+          "title": "展翼阁挂盒",
+          "pageType": "fact",
+          "score": 55.8,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0149_置物架_展翼阁挂盒.md"
+        },
+        {
+          "title": "螺丝模块",
+          "pageType": "fact",
+          "score": 54.8,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0215_收纳模块与电子设备_螺丝模块.md"
+        },
+        {
+          "title": "碗碟类（10 款）",
+          "pageType": "fact",
+          "score": 54.8,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0068_抽屉产品_碗碟类（10 款）.md"
+        }
+      ]
+    },
+    {
+      "question": "帮我写一个中枢阁的介绍话术",
+      "hasEvidence": true,
+      "topScore": 110,
+      "hits": [
+        {
+          "title": "中枢阁(餐边层盒款)",
+          "pageType": "application",
+          "score": 110,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0355_三、置物架系列_高柜_中枢阁(餐边层盒款).md"
+        },
+        {
+          "title": "中枢阁(餐边工具收纳款)",
+          "pageType": "application",
+          "score": 110,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0356_三、置物架系列_高柜_中枢阁(餐边工具收纳款).md"
+        },
+        {
+          "title": "中枢阁(茶品层盒款)",
+          "pageType": "application",
+          "score": 110,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0348_三、置物架系列_高柜_中枢阁(茶品层盒款).md"
+        },
+        {
+          "title": "中枢阁(宠物层盒款)",
+          "pageType": "application",
+          "score": 110,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0337_三、置物架系列_高柜_中枢阁(宠物层盒款).md"
+        },
+        {
+          "title": "中枢阁(宠物外出用品款)",
+          "pageType": "application",
+          "score": 110,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0336_三、置物架系列_高柜_中枢阁(宠物外出用品款).md"
+        }
+      ]
+    },
+    {
+      "question": "中枢阁的水槽款，安装尺寸",
+      "hasEvidence": true,
+      "topScore": 205.2,
+      "hits": [
+        {
+          "title": "尺寸",
+          "pageType": "fact",
+          "score": 205.2,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0104_尺寸与安装_尺寸.md"
+        },
+        {
+          "title": "安装",
+          "pageType": "fact",
+          "score": 203.2,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0200_尺寸与安装_安装.md"
+        },
+        {
+          "title": "中枢阁(书房书籍文具款)",
+          "pageType": "application",
+          "score": 174.4,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0327_三、置物架系列_高柜_中枢阁(书房书籍文具款).md"
+        },
+        {
+          "title": "中枢阁(餐边层盒款)",
+          "pageType": "application",
+          "score": 115.6,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0355_三、置物架系列_高柜_中枢阁(餐边层盒款).md"
+        },
+        {
+          "title": "中枢阁(餐边工具收纳款)",
+          "pageType": "application",
+          "score": 115.6,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0356_三、置物架系列_高柜_中枢阁(餐边工具收纳款).md"
+        }
+      ]
+    },
+    {
+      "question": "请问 ：Mate2.0 上面定制化妆品首饰抽，全是开门式的，找不到抽屉式的呢？",
+      "hasEvidence": true,
+      "topScore": 116.2,
+      "hits": [
+        {
+          "title": "化妆品首饰抽中抽（140H）",
+          "pageType": "application",
+          "score": 116.2,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0074_一、抽屉系列_四代魔法抽_化妆品首饰抽中抽（140H）.md"
+        },
+        {
+          "title": "两种安装方式",
+          "pageType": "fact",
+          "score": 98.2,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0077_尺寸与安装_两种安装方式.md"
+        },
+        {
+          "title": "尚酷抽",
+          "pageType": "fact",
+          "score": 53.4,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0246_极限安装_尚酷抽.md"
+        },
+        {
+          "title": "产品矩阵",
+          "pageType": "fact",
+          "score": 52.4,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0108_升降机_产品矩阵.md"
+        },
+        {
+          "title": "C模块-800",
+          "pageType": "fact",
+          "score": 52.4,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0180_置物架_C模块-800.md"
+        }
+      ]
+    },
+    {
+      "question": "6.1号之后，我们会让客户分开来打款，严格执行公司制度。因为之前有的单，有定制柜和酷太，有的时候客户会打在一起。",
+      "hasEvidence": false,
+      "topScore": 0,
+      "hits": []
+    },
+    {
+      "question": "中枢阁挂盒多少",
+      "hasEvidence": true,
+      "topScore": 118,
+      "hits": [
+        {
+          "title": "中枢阁(餐边工具收纳款)",
+          "pageType": "application",
+          "score": 118,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0356_三、置物架系列_高柜_中枢阁(餐边工具收纳款).md"
+        },
+        {
+          "title": "中枢阁(餐边层盒款)",
+          "pageType": "application",
+          "score": 114,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0355_三、置物架系列_高柜_中枢阁(餐边层盒款).md"
+        },
+        {
+          "title": "中枢阁(茶品层盒款)",
+          "pageType": "application",
+          "score": 114,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0348_三、置物架系列_高柜_中枢阁(茶品层盒款).md"
+        },
+        {
+          "title": "中枢阁(宠物层盒款)",
+          "pageType": "application",
+          "score": 114,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0337_三、置物架系列_高柜_中枢阁(宠物层盒款).md"
+        },
+        {
+          "title": "中枢阁(宠物外出用品款)",
+          "pageType": "application",
+          "score": 114,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0336_三、置物架系列_高柜_中枢阁(宠物外出用品款).md"
+        }
+      ]
+    },
+    {
+      "question": "中枢阁挂盒具体价格我这边没有，发货时间需要查订单才能确认。这两个问题建议直接联系对应的销售负责人处理。",
+      "hasEvidence": true,
+      "topScore": 108.55,
+      "hits": [
+        {
+          "title": "中枢阁(餐边工具收纳款)",
+          "pageType": "application",
+          "score": 108.55,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0356_三、置物架系列_高柜_中枢阁(餐边工具收纳款).md"
+        },
+        {
+          "title": "中枢阁(餐边层盒款)",
+          "pageType": "application",
+          "score": 108.04,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0355_三、置物架系列_高柜_中枢阁(餐边层盒款).md"
+        },
+        {
+          "title": "中枢阁(茶品层盒款)",
+          "pageType": "application",
+          "score": 108.04,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0348_三、置物架系列_高柜_中枢阁(茶品层盒款).md"
+        },
+        {
+          "title": "中枢阁(宠物层盒款)",
+          "pageType": "application",
+          "score": 108.04,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0337_三、置物架系列_高柜_中枢阁(宠物层盒款).md"
+        },
+        {
+          "title": "中枢阁(宠物外出用品款)",
+          "pageType": "application",
+          "score": 108.04,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0336_三、置物架系列_高柜_中枢阁(宠物外出用品款).md"
+        }
+      ]
+    },
+    {
+      "question": "巧翼阁限位器卡在轨道前端侧板位置，对准槽口推到底就行，装的时候注意方向别反了。中枢阁200柜挂盒的具体尺寸我这边没有，建议找对应销售负责人确认。",
+      "hasEvidence": true,
+      "topScore": 137,
+      "hits": [
+        {
+          "title": "巧翼阁（转角小怪物）",
+          "pageType": "application",
+          "score": 137,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0391_三、置物架系列_转角_巧翼阁（转角小怪物）.md"
+        },
+        {
+          "title": "中枢阁(书房书籍文具款)",
+          "pageType": "application",
+          "score": 135.91,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0327_三、置物架系列_高柜_中枢阁(书房书籍文具款).md"
+        },
+        {
+          "title": "尺寸",
+          "pageType": "fact",
+          "score": 126.09,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0104_尺寸与安装_尺寸.md"
+        },
+        {
+          "title": "中枢阁(餐边工具收纳款)",
+          "pageType": "application",
+          "score": 108.55,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0356_三、置物架系列_高柜_中枢阁(餐边工具收纳款).md"
+        },
+        {
+          "title": "中枢阁(餐边层盒款)",
+          "pageType": "application",
+          "score": 108.18,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0355_三、置物架系列_高柜_中枢阁(餐边层盒款).md"
+        }
+      ]
+    },
+    {
+      "question": "中枢阁挂盒尺寸是多少",
+      "hasEvidence": true,
+      "topScore": 141,
+      "hits": [
+        {
+          "title": "中枢阁(书房书籍文具款)",
+          "pageType": "application",
+          "score": 141,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0327_三、置物架系列_高柜_中枢阁(书房书籍文具款).md"
+        },
+        {
+          "title": "尺寸",
+          "pageType": "fact",
+          "score": 127.67,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0104_尺寸与安装_尺寸.md"
+        },
+        {
+          "title": "中枢阁(餐边工具收纳款)",
+          "pageType": "application",
+          "score": 114,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0356_三、置物架系列_高柜_中枢阁(餐边工具收纳款).md"
+        },
+        {
+          "title": "中枢阁(餐边层盒款)",
+          "pageType": "application",
+          "score": 111.33,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0355_三、置物架系列_高柜_中枢阁(餐边层盒款).md"
+        },
+        {
+          "title": "中枢阁(茶品层盒款)",
+          "pageType": "application",
+          "score": 111.33,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0348_三、置物架系列_高柜_中枢阁(茶品层盒款).md"
+        }
+      ]
+    },
+    {
+      "question": "中枢阁挂盒的具体尺寸我这边没有，建议联系对应销售负责人确认。",
+      "hasEvidence": true,
+      "topScore": 136.56,
+      "hits": [
+        {
+          "title": "中枢阁(书房书籍文具款)",
+          "pageType": "application",
+          "score": 136.56,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0327_三、置物架系列_高柜_中枢阁(书房书籍文具款).md"
+        },
+        {
+          "title": "尺寸",
+          "pageType": "fact",
+          "score": 125.89,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0104_尺寸与安装_尺寸.md"
+        },
+        {
+          "title": "中枢阁(餐边工具收纳款)",
+          "pageType": "application",
+          "score": 109.56,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0356_三、置物架系列_高柜_中枢阁(餐边工具收纳款).md"
+        },
+        {
+          "title": "中枢阁(餐边层盒款)",
+          "pageType": "application",
+          "score": 108.67,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0355_三、置物架系列_高柜_中枢阁(餐边层盒款).md"
+        },
+        {
+          "title": "中枢阁(茶品层盒款)",
+          "pageType": "application",
+          "score": 108.67,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0348_三、置物架系列_高柜_中枢阁(茶品层盒款).md"
+        }
+      ]
+    },
+    {
+      "question": "中枢阁挂盒尺寸：\\n- 2层/3层款：460×115×85mm（盒内447×100×75）\\n- 7层款小盒：460×215×85mm（盒内447×200×75）\\n- 7层款大盒：460×215×115mm（盒内447×200×105）",
+      "hasEvidence": true,
+      "topScore": 207.65,
+      "hits": [
+        {
+          "title": "生成器读取范围",
+          "pageType": "planning",
+          "score": 207.65,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/01_规划师设计精准知识卡/0002_检索导航与产品体系_生成器读取范围.md"
+        },
+        {
+          "title": "挂门宝2层450柜",
+          "pageType": "fact",
+          "score": 172.74,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0280_极限安装_挂门宝2层450柜.md"
+        },
+        {
+          "title": "中枢阁(书房书籍文具款)",
+          "pageType": "application",
+          "score": 140.3,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0327_三、置物架系列_高柜_中枢阁(书房书籍文具款).md"
+        },
+        {
+          "title": "翼枢阁7层",
+          "pageType": "fact",
+          "score": 131.43,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0278_极限安装_翼枢阁7层.md"
+        },
+        {
+          "title": "150柜窄柜调料抽",
+          "pageType": "fact",
+          "score": 130.83,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0266_极限安装_150柜窄柜调料抽.md"
+        }
+      ]
+    },
+    {
+      "question": "中枢阁挂盒的具体尺寸我这边没有，建议直接联系对应销售负责人确认。",
+      "hasEvidence": true,
+      "topScore": 137.14,
+      "hits": [
+        {
+          "title": "中枢阁(书房书籍文具款)",
+          "pageType": "application",
+          "score": 137.14,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0327_三、置物架系列_高柜_中枢阁(书房书籍文具款).md"
+        },
+        {
+          "title": "尺寸",
+          "pageType": "fact",
+          "score": 126.66,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0104_尺寸与安装_尺寸.md"
+        },
+        {
+          "title": "中枢阁(餐边工具收纳款)",
+          "pageType": "application",
+          "score": 110.14,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0356_三、置物架系列_高柜_中枢阁(餐边工具收纳款).md"
+        },
+        {
+          "title": "中枢阁(餐边层盒款)",
+          "pageType": "application",
+          "score": 109.31,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0355_三、置物架系列_高柜_中枢阁(餐边层盒款).md"
+        },
+        {
+          "title": "中枢阁(茶品层盒款)",
+          "pageType": "application",
+          "score": 109.31,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0348_三、置物架系列_高柜_中枢阁(茶品层盒款).md"
+        }
+      ]
+    },
+    {
+      "question": "发货时间需要查具体订单，中枢阁挂盒价格我这边没有，建议直接联系对应的销售负责人确认。",
+      "hasEvidence": true,
+      "topScore": 109.16,
+      "hits": [
+        {
+          "title": "中枢阁(餐边工具收纳款)",
+          "pageType": "application",
+          "score": 109.16,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0356_三、置物架系列_高柜_中枢阁(餐边工具收纳款).md"
+        },
+        {
+          "title": "中枢阁(餐边层盒款)",
+          "pageType": "application",
+          "score": 108.53,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0355_三、置物架系列_高柜_中枢阁(餐边层盒款).md"
+        },
+        {
+          "title": "中枢阁(茶品层盒款)",
+          "pageType": "application",
+          "score": 108.53,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0348_三、置物架系列_高柜_中枢阁(茶品层盒款).md"
+        },
+        {
+          "title": "中枢阁(宠物层盒款)",
+          "pageType": "application",
+          "score": 108.53,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0337_三、置物架系列_高柜_中枢阁(宠物层盒款).md"
+        },
+        {
+          "title": "中枢阁(宠物外出用品款)",
+          "pageType": "application",
+          "score": 108.53,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0336_三、置物架系列_高柜_中枢阁(宠物外出用品款).md"
+        }
+      ]
+    },
+    {
+      "question": "中枢阁2/3层挂盒尺寸是460×115×85mm（盒内447×100×75）；7层小盒460×215×85mm（盒内447×200×75），大盒460×215×115mm（盒内447×200×105）。",
+      "hasEvidence": true,
+      "topScore": 207.91,
+      "hits": [
+        {
+          "title": "生成器读取范围",
+          "pageType": "planning",
+          "score": 207.91,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/01_规划师设计精准知识卡/0002_检索导航与产品体系_生成器读取范围.md"
+        },
+        {
+          "title": "中枢阁(书房书籍文具款)",
+          "pageType": "application",
+          "score": 139.7,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0327_三、置物架系列_高柜_中枢阁(书房书籍文具款).md"
+        },
+        {
+          "title": "翼枢阁7层",
+          "pageType": "fact",
+          "score": 132.16,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0278_极限安装_翼枢阁7层.md"
+        },
+        {
+          "title": "150柜窄柜调料抽",
+          "pageType": "fact",
+          "score": 131.93,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0266_极限安装_150柜窄柜调料抽.md"
+        },
+        {
+          "title": "展翼阁（四代全开小怪物）",
+          "pageType": "fact",
+          "score": 130.81,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0272_极限安装_展翼阁（四代全开小怪物）.md"
+        }
+      ]
+    },
+    {
+      "question": "中枢阁挂盒的具体尺寸我这边没有，建议直接联系对应的销售负责人确认。",
+      "hasEvidence": true,
+      "topScore": 137,
+      "hits": [
+        {
+          "title": "中枢阁(书房书籍文具款)",
+          "pageType": "application",
+          "score": 137,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0327_三、置物架系列_高柜_中枢阁(书房书籍文具款).md"
+        },
+        {
+          "title": "尺寸",
+          "pageType": "fact",
+          "score": 126.6,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0104_尺寸与安装_尺寸.md"
+        },
+        {
+          "title": "中枢阁(餐边工具收纳款)",
+          "pageType": "application",
+          "score": 110,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0356_三、置物架系列_高柜_中枢阁(餐边工具收纳款).md"
+        },
+        {
+          "title": "中枢阁(餐边层盒款)",
+          "pageType": "application",
+          "score": 109.2,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0355_三、置物架系列_高柜_中枢阁(餐边层盒款).md"
+        },
+        {
+          "title": "中枢阁(茶品层盒款)",
+          "pageType": "application",
+          "score": 109.2,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0348_三、置物架系列_高柜_中枢阁(茶品层盒款).md"
+        }
+      ]
+    },
+    {
+      "question": "巧翼阁限位器卡在轨道前端侧板位置，对准槽口推到底就行，注意方向别装反。",
+      "hasEvidence": true,
+      "topScore": 108.32,
+      "hits": [
+        {
+          "title": "巧翼阁（转角小怪物）",
+          "pageType": "application",
+          "score": 108.32,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0391_三、置物架系列_转角_巧翼阁（转角小怪物）.md"
+        },
+        {
+          "title": "转角置物架",
+          "pageType": "fact",
+          "score": 53.32,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0147_置物架_转角置物架.md"
+        },
+        {
+          "title": "转角",
+          "pageType": "fact",
+          "score": 52.55,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0043_置物架_转角.md"
+        },
+        {
+          "title": "轨道角码与抽屉深度定制范围",
+          "pageType": "fact",
+          "score": 52.32,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0235_尺寸与安装_轨道角码与抽屉深度定制范围.md"
+        },
+        {
+          "title": "竞品对比",
+          "pageType": "fact",
+          "score": 51.55,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0287_命名与竞品_竞品对比.md"
+        }
+      ]
+    },
+    {
+      "question": "巧翼阁限位器卡在轨道前端侧板位置，对准槽口推到底就行，装的时候注意方向别反了。",
+      "hasEvidence": true,
+      "topScore": 108.06,
+      "hits": [
+        {
+          "title": "巧翼阁（转角小怪物）",
+          "pageType": "application",
+          "score": 108.06,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0391_三、置物架系列_转角_巧翼阁（转角小怪物）.md"
+        },
+        {
+          "title": "转角置物架",
+          "pageType": "fact",
+          "score": 53.06,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0147_置物架_转角置物架.md"
+        },
+        {
+          "title": "转角",
+          "pageType": "fact",
+          "score": 52.37,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0043_置物架_转角.md"
+        },
+        {
+          "title": "轨道角码与抽屉深度定制范围",
+          "pageType": "fact",
+          "score": 52.06,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0235_尺寸与安装_轨道角码与抽屉深度定制范围.md"
+        },
+        {
+          "title": "竞品对比",
+          "pageType": "fact",
+          "score": 51.37,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0287_命名与竞品_竞品对比.md"
+        }
+      ]
+    },
+    {
+      "question": "260的高度可以装倾松抽吗",
+      "hasEvidence": true,
+      "topScore": 223,
+      "hits": [
+        {
+          "title": "倾松抽",
+          "pageType": "fact",
+          "score": 223,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0251_极限安装_倾松抽.md"
+        },
+        {
+          "title": "倾松抽（270H）",
+          "pageType": "application",
+          "score": 141,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0093_一、抽屉系列_四代魔法抽_倾松抽（270H）.md"
+        },
+        {
+          "title": "四代魔法抽",
+          "pageType": "fact",
+          "score": 87,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0038_抽屉产品_四代魔法抽.md"
+        },
+        {
+          "title": "地柜置物架",
+          "pageType": "fact",
+          "score": 81,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0152_置物架_地柜置物架.md"
+        },
+        {
+          "title": "定制范围",
+          "pageType": "fact",
+          "score": 81,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0237_尺寸与安装_定制范围.md"
+        }
+      ]
+    },
+    {
+      "question": "260mm装不了倾松抽，倾松抽安装高度至少需要290mm（270 + 轨道20mm），260矮了。",
+      "hasEvidence": true,
+      "topScore": 300.5,
+      "hits": [
+        {
+          "title": "倾松抽",
+          "pageType": "fact",
+          "score": 300.5,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0251_极限安装_倾松抽.md"
+        },
+        {
+          "title": "安装",
+          "pageType": "fact",
+          "score": 170.5,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0200_尺寸与安装_安装.md"
+        },
+        {
+          "title": "倾松抽（270H）",
+          "pageType": "application",
+          "score": 170.5,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0093_一、抽屉系列_四代魔法抽_倾松抽（270H）.md"
+        },
+        {
+          "title": "倾松抽（270H）安装",
+          "pageType": "fact",
+          "score": 165,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0236_尺寸与安装_倾松抽（270H）安装.md"
+        },
+        {
+          "title": "结构数据（800 柜为例）",
+          "pageType": "fact",
+          "score": 133,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0122_升降机_结构数据（800 柜为例）.md"
+        }
+      ]
+    },
+    {
+      "question": "中枢阁区分左右吗",
+      "hasEvidence": true,
+      "topScore": 112.86,
+      "hits": [
+        {
+          "title": "中枢阁(餐边层盒款)",
+          "pageType": "application",
+          "score": 112.86,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0355_三、置物架系列_高柜_中枢阁(餐边层盒款).md"
+        },
+        {
+          "title": "中枢阁(餐边工具收纳款)",
+          "pageType": "application",
+          "score": 112.86,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0356_三、置物架系列_高柜_中枢阁(餐边工具收纳款).md"
+        },
+        {
+          "title": "中枢阁(茶品层盒款)",
+          "pageType": "application",
+          "score": 112.86,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0348_三、置物架系列_高柜_中枢阁(茶品层盒款).md"
+        },
+        {
+          "title": "中枢阁(宠物层盒款)",
+          "pageType": "application",
+          "score": 112.86,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0337_三、置物架系列_高柜_中枢阁(宠物层盒款).md"
+        },
+        {
+          "title": "中枢阁(宠物外出用品款)",
+          "pageType": "application",
+          "score": 112.86,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0336_三、置物架系列_高柜_中枢阁(宠物外出用品款).md"
+        }
+      ]
+    },
+    {
+      "question": "中枢阁7层分左右装，下单时要选方向；2层和3层不区分左右。",
+      "hasEvidence": true,
+      "topScore": 324.26,
+      "hits": [
+        {
+          "title": "中枢阁7层",
+          "pageType": "application",
+          "score": 324.26,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0325_三、置物架系列_高柜_中枢阁7层.md"
+        },
+        {
+          "title": "中枢阁7层",
+          "pageType": "fact",
+          "score": 156.35,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0281_极限安装_中枢阁7层.md"
+        },
+        {
+          "title": "中枢阁(餐边层盒款)",
+          "pageType": "application",
+          "score": 112.26,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0355_三、置物架系列_高柜_中枢阁(餐边层盒款).md"
+        },
+        {
+          "title": "中枢阁(餐边工具收纳款)",
+          "pageType": "application",
+          "score": 112.26,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0356_三、置物架系列_高柜_中枢阁(餐边工具收纳款).md"
+        },
+        {
+          "title": "中枢阁(茶品层盒款)",
+          "pageType": "application",
+          "score": 112.26,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0348_三、置物架系列_高柜_中枢阁(茶品层盒款).md"
+        }
+      ]
+    },
+    {
+      "question": "锅具抽可以定深度370吗",
+      "hasEvidence": true,
+      "topScore": 139.55,
+      "hits": [
+        {
+          "title": "定制范围",
+          "pageType": "fact",
+          "score": 139.55,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0237_尺寸与安装_定制范围.md"
+        },
+        {
+          "title": "自动回复读取流程",
+          "pageType": "fact",
+          "score": 117.73,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0027_检索导航与产品体系_自动回复读取流程.md"
+        },
+        {
+          "title": "抽屉轨道深度安装判断口径",
+          "pageType": "fact",
+          "score": 115.55,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0012_尺寸与安装_抽屉轨道深度安装判断口径.md"
+        },
+        {
+          "title": "安装尺寸缺少产品名反问口径",
+          "pageType": "fact",
+          "score": 113.36,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0011_尺寸与安装_安装尺寸缺少产品名反问口径.md"
+        },
+        {
+          "title": "产品深度能否安装/定制的回答口径",
+          "pageType": "fact",
+          "score": 113.36,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0232_尺寸与安装_产品深度能否安装_定制的回答口径.md"
+        }
+      ]
+    },
+    {
+      "question": "请问下，柜内净深415，轨道做350的，抽屉能做400的吗？这样柜内安装尺寸够吗？",
+      "hasEvidence": true,
+      "topScore": 251.27,
+      "hits": [
+        {
+          "title": "尺寸",
+          "pageType": "fact",
+          "score": 251.27,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0104_尺寸与安装_尺寸.md"
+        },
+        {
+          "title": "安装",
+          "pageType": "fact",
+          "score": 198.91,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0200_尺寸与安装_安装.md"
+        },
+        {
+          "title": "尺寸规格",
+          "pageType": "fact",
+          "score": 158,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0096_尺寸与安装_尺寸规格.md"
+        },
+        {
+          "title": "适配柜宽",
+          "pageType": "fact",
+          "score": 155.82,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0078_抽屉产品_适配柜宽.md"
+        },
+        {
+          "title": "抽屉轨道深度安装判断口径",
+          "pageType": "fact",
+          "score": 118.36,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0012_尺寸与安装_抽屉轨道深度安装判断口径.md"
+        }
+      ]
+    },
+    {
+      "question": "柜内净深415，轨道350的话抽屉可以做400深，安装深度需要400，415够用，没问题。",
+      "hasEvidence": true,
+      "topScore": 171.74,
+      "hits": [
+        {
+          "title": "安装",
+          "pageType": "fact",
+          "score": 171.74,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0200_尺寸与安装_安装.md"
+        },
+        {
+          "title": "抽屉轨道深度安装判断口径",
+          "pageType": "fact",
+          "score": 167.09,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0012_尺寸与安装_抽屉轨道深度安装判断口径.md"
+        },
+        {
+          "title": "安装尺寸缺少产品名反问口径",
+          "pageType": "fact",
+          "score": 160.23,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0011_尺寸与安装_安装尺寸缺少产品名反问口径.md"
+        },
+        {
+          "title": "尺寸规格",
+          "pageType": "fact",
+          "score": 131.91,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0096_尺寸与安装_尺寸规格.md"
+        },
+        {
+          "title": "适配柜宽",
+          "pageType": "fact",
+          "score": 129.86,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0078_抽屉产品_适配柜宽.md"
+        }
+      ]
+    },
+    {
+      "question": "轨道350可以做400深的抽屉，安装极限需要415，你柜内净深刚好415，卡得比较紧但能装。",
+      "hasEvidence": true,
+      "topScore": 170.85,
+      "hits": [
+        {
+          "title": "安装",
+          "pageType": "fact",
+          "score": 170.85,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0200_尺寸与安装_安装.md"
+        },
+        {
+          "title": "尺寸规格",
+          "pageType": "fact",
+          "score": 129.77,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0096_尺寸与安装_尺寸规格.md"
+        },
+        {
+          "title": "适配柜宽",
+          "pageType": "fact",
+          "score": 127.92,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0078_抽屉产品_适配柜宽.md"
+        },
+        {
+          "title": "抽屉轨道深度安装判断口径",
+          "pageType": "fact",
+          "score": 91.31,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0012_尺寸与安装_抽屉轨道深度安装判断口径.md"
+        },
+        {
+          "title": "安装尺寸缺少产品名反问口径",
+          "pageType": "fact",
+          "score": 86.38,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0011_尺寸与安装_安装尺寸缺少产品名反问口径.md"
+        }
+      ]
+    },
+    {
+      "question": "轨道350可以做400深的抽屉，安装极限是415，你柜内净深刚好415，理论上能装但非常紧。",
+      "hasEvidence": true,
+      "topScore": 170.23,
+      "hits": [
+        {
+          "title": "安装",
+          "pageType": "fact",
+          "score": 170.23,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0200_尺寸与安装_安装.md"
+        },
+        {
+          "title": "尺寸规格",
+          "pageType": "fact",
+          "score": 129.15,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0096_尺寸与安装_尺寸规格.md"
+        },
+        {
+          "title": "适配柜宽",
+          "pageType": "fact",
+          "score": 127.31,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0078_抽屉产品_适配柜宽.md"
+        },
+        {
+          "title": "抽屉轨道深度安装判断口径",
+          "pageType": "fact",
+          "score": 90.69,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0012_尺寸与安装_抽屉轨道深度安装判断口径.md"
+        },
+        {
+          "title": "安装尺寸缺少产品名反问口径",
+          "pageType": "fact",
+          "score": 85.77,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0011_尺寸与安装_安装尺寸缺少产品名反问口径.md"
+        }
+      ]
+    },
+    {
+      "question": "您可以定制70H抽，另外下单底部的钢丝挂架自行组合搭配使用",
+      "hasEvidence": true,
+      "topScore": 96.78,
+      "hits": [
+        {
+          "title": "70H 工具抽连门/抽面安装判断",
+          "pageType": "fact",
+          "score": 96.78,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0228_尺寸与安装_70H 工具抽连门_抽面安装判断.md"
+        },
+        {
+          "title": "四代魔法抽",
+          "pageType": "fact",
+          "score": 56.33,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0038_抽屉产品_四代魔法抽.md"
+        },
+        {
+          "title": "碗碟类（10 款）",
+          "pageType": "fact",
+          "score": 53.67,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0068_抽屉产品_碗碟类（10 款）.md"
+        },
+        {
+          "title": "子母抽（70+180）",
+          "pageType": "fact",
+          "score": 53.67,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0062_抽屉产品_子母抽（70+180）.md"
+        },
+        {
+          "title": "魔法抽高柜七件套",
+          "pageType": "fact",
+          "score": 52.67,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0091_抽屉产品_魔法抽高柜七件套.md"
+        }
+      ]
+    },
+    {
+      "question": "@季炎(季炎（超威）) 那个升降机有其他的解决办法吗？客户不同意门板上开孔 底板已经开过孔了",
+      "hasEvidence": false,
+      "topScore": 0,
+      "hits": []
+    },
+    {
+      "question": "轨道350，产品深度360",
+      "hasEvidence": true,
+      "topScore": 96.45,
+      "hits": [
+        {
+          "title": "柜底双层收纳架",
+          "pageType": "fact",
+          "score": 96.45,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0274_极限安装_柜底双层收纳架.md"
+        },
+        {
+          "title": "安装深度与轨道系列规则",
+          "pageType": "fact",
+          "score": 94.45,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0233_尺寸与安装_安装深度与轨道系列规则.md"
+        },
+        {
+          "title": "轨道角码与抽屉深度定制范围",
+          "pageType": "fact",
+          "score": 92.27,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0235_尺寸与安装_轨道角码与抽屉深度定制范围.md"
+        },
+        {
+          "title": "展翼阁（四代全开小怪物）",
+          "pageType": "fact",
+          "score": 92.09,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0272_极限安装_展翼阁（四代全开小怪物）.md"
+        },
+        {
+          "title": "中枢阁2层",
+          "pageType": "fact",
+          "score": 92.09,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0265_极限安装_中枢阁2层.md"
+        }
+      ]
+    },
+    {
+      "question": "140的内衣抽深度可以定制吗",
+      "hasEvidence": true,
+      "topScore": 117.08,
+      "hits": [
+        {
+          "title": "内衣抽（140H）",
+          "pageType": "application",
+          "score": 117.08,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0075_一、抽屉系列_四代魔法抽_内衣抽（140H）.md"
+        },
+        {
+          "title": "深度体系",
+          "pageType": "fact",
+          "score": 86.23,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0231_尺寸与安装_深度体系.md"
+        },
+        {
+          "title": "安装尺寸缺少产品名反问口径",
+          "pageType": "fact",
+          "score": 84.38,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0011_尺寸与安装_安装尺寸缺少产品名反问口径.md"
+        },
+        {
+          "title": "定制范围",
+          "pageType": "fact",
+          "score": 82.54,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0237_尺寸与安装_定制范围.md"
+        },
+        {
+          "title": "地柜置物架",
+          "pageType": "fact",
+          "score": 80.69,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0152_置物架_地柜置物架.md"
+        }
+      ]
+    },
+    {
+      "question": "定制的四代碗碟半抽能不能碗碟位置互换一下",
+      "hasEvidence": true,
+      "topScore": 134.33,
+      "hits": [
+        {
+          "title": "碗碟抽半抽（230/250H）",
+          "pageType": "application",
+          "score": 134.33,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0014_一、抽屉系列_四代魔法抽_碗碟抽半抽（230_250H）.md"
+        },
+        {
+          "title": "消毒柜碗碟抽半抽（230H）",
+          "pageType": "application",
+          "score": 134.33,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0219_一、抽屉系列_四代魔法抽_消毒柜碗碟抽半抽（230H）.md"
+        },
+        {
+          "title": "半抽（碗碟抽半抽 / 碗碟抽中抽半抽 / 碗碟半抽）",
+          "pageType": "fact",
+          "score": 122.67,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0061_抽屉产品_半抽（碗碟抽半抽 _ 碗碟抽中抽半抽 _ 碗碟半抽）.md"
+        },
+        {
+          "title": "碗碟半抽别名与尺寸公式精准口径",
+          "pageType": "fact",
+          "score": 79.33,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0003_尺寸与安装_碗碟半抽别名与尺寸公式精准口径.md"
+        },
+        {
+          "title": "百纳抽与百纳阁区分",
+          "pageType": "fact",
+          "score": 70.67,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0099_抽屉产品_百纳抽与百纳阁区分.md"
+        }
+      ]
+    },
+    {
+      "question": "需要的，定制基础+400会员价，涉及更改结构，所以走特殊定制，比较麻烦，对应你们的成本也就比较高了",
+      "hasEvidence": true,
+      "topScore": 80.34,
+      "hits": [
+        {
+          "title": "尺寸规格",
+          "pageType": "fact",
+          "score": 80.34,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0096_尺寸与安装_尺寸规格.md"
+        },
+        {
+          "title": "适配柜宽",
+          "pageType": "fact",
+          "score": 80.34,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0078_抽屉产品_适配柜宽.md"
+        },
+        {
+          "title": "展翼阁挂盒",
+          "pageType": "fact",
+          "score": 80.34,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0149_置物架_展翼阁挂盒.md"
+        },
+        {
+          "title": "生成器读取范围",
+          "pageType": "planning",
+          "score": 74.34,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/01_规划师设计精准知识卡/0002_检索导航与产品体系_生成器读取范围.md"
+        },
+        {
+          "title": "半抽（碗碟抽半抽 / 碗碟抽中抽半抽 / 碗碟半抽）",
+          "pageType": "fact",
+          "score": 38.27,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0061_抽屉产品_半抽（碗碟抽半抽 _ 碗碟抽中抽半抽 _ 碗碟半抽）.md"
+        }
+      ]
+    },
+    {
+      "question": "有两个抽屉尺寸错了，需要返厂再改下，怎么申请？",
+      "hasEvidence": true,
+      "topScore": 128.79,
+      "hits": [
+        {
+          "title": "尺寸",
+          "pageType": "fact",
+          "score": 128.79,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0104_尺寸与安装_尺寸.md"
+        },
+        {
+          "title": "绘画A模块-800",
+          "pageType": "fact",
+          "score": 80.79,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0165_置物架_绘画A模块-800.md"
+        },
+        {
+          "title": "绘画B模块-600",
+          "pageType": "fact",
+          "score": 80.79,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0166_置物架_绘画B模块-600.md"
+        },
+        {
+          "title": "书房C模块-800",
+          "pageType": "fact",
+          "score": 80.79,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0170_置物架_书房C模块-800.md"
+        },
+        {
+          "title": "玄关A模块-800",
+          "pageType": "fact",
+          "score": 80.79,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0176_置物架_玄关A模块-800.md"
+        }
+      ]
+    },
+    {
+      "question": "产品型号和要修改的尺寸也给下",
+      "hasEvidence": true,
+      "topScore": 128.69,
+      "hits": [
+        {
+          "title": "尺寸",
+          "pageType": "fact",
+          "score": 128.69,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0104_尺寸与安装_尺寸.md"
+        },
+        {
+          "title": "产品深度能否安装/定制的回答口径",
+          "pageType": "fact",
+          "score": 40.38,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0232_尺寸与安装_产品深度能否安装_定制的回答口径.md"
+        },
+        {
+          "title": "连门式/开门式门板连接件规则",
+          "pageType": "fact",
+          "score": 40.38,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0229_尺寸与安装_连门式_开门式门板连接件规则.md"
+        },
+        {
+          "title": "自动回复读取流程",
+          "pageType": "fact",
+          "score": 40.38,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0027_检索导航与产品体系_自动回复读取流程.md"
+        },
+        {
+          "title": "知识库维护同步路径",
+          "pageType": "fact",
+          "score": 38.54,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0001_检索导航与产品体系_知识库维护同步路径.md"
+        }
+      ]
+    },
+    {
+      "question": "@陈德茂(陈德茂) 图纸深度是347，下单深度是447.按照图纸为准了哈",
+      "hasEvidence": true,
+      "topScore": 79,
+      "hits": [
+        {
+          "title": "地柜置物架",
+          "pageType": "fact",
+          "score": 79,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0152_置物架_地柜置物架.md"
+        },
+        {
+          "title": "定制范围",
+          "pageType": "fact",
+          "score": 79,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0237_尺寸与安装_定制范围.md"
+        },
+        {
+          "title": "旋翼阁",
+          "pageType": "fact",
+          "score": 79,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0150_置物架_旋翼阁.md"
+        },
+        {
+          "title": "参数",
+          "pageType": "fact",
+          "score": 78,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0133_升降机_参数.md"
+        },
+        {
+          "title": "定制规则",
+          "pageType": "fact",
+          "score": 78,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0086_抽屉产品_定制规则.md"
+        }
+      ]
+    },
+    {
+      "question": "@芮艳萍(梦芮) 停机坪尺寸现在可以定制吗",
+      "hasEvidence": true,
+      "topScore": 138.65,
+      "hits": [
+        {
+          "title": "停机坪（90H）",
+          "pageType": "application",
+          "score": 138.65,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0091_一、抽屉系列_四代魔法抽_停机坪（90H）.md"
+        },
+        {
+          "title": "尺寸",
+          "pageType": "fact",
+          "score": 129.24,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0104_尺寸与安装_尺寸.md"
+        },
+        {
+          "title": "基础产品精准知识卡索引",
+          "pageType": "fact",
+          "score": 38.65,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/_索引.md"
+        },
+        {
+          "title": "四代魔法抽",
+          "pageType": "fact",
+          "score": 38.65,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0038_抽屉产品_四代魔法抽.md"
+        },
+        {
+          "title": "安装尺寸缺少产品名反问口径",
+          "pageType": "fact",
+          "score": 37.24,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0011_尺寸与安装_安装尺寸缺少产品名反问口径.md"
+        }
+      ]
+    },
+    {
+      "question": "@梅梦婷(梦莱（梅梦婷）) 问下尚酷的可以做切角抽吗",
+      "hasEvidence": true,
+      "topScore": 317.33,
+      "hits": [
+        {
+          "title": "切角抽",
+          "pageType": "application",
+          "score": 317.33,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0057_一、抽屉系列_四代魔法抽_切角抽.md"
+        },
+        {
+          "title": "尚酷双层",
+          "pageType": "application",
+          "score": 106.33,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0317_二、升降机系列_吊柜_尚酷双层.md"
+        },
+        {
+          "title": "特殊结构单品",
+          "pageType": "fact",
+          "score": 53.67,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0064_抽屉产品_特殊结构单品.md"
+        }
+      ]
+    },
+    {
+      "question": "@李寒(梦寒) 抽屉深度可以做240吗",
+      "hasEvidence": true,
+      "topScore": 88.6,
+      "hits": [
+        {
+          "title": "抽屉轨道深度安装判断口径",
+          "pageType": "fact",
+          "score": 88.6,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0012_尺寸与安装_抽屉轨道深度安装判断口径.md"
+        },
+        {
+          "title": "易酷调料抽",
+          "pageType": "fact",
+          "score": 87,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0262_极限安装_易酷调料抽.md"
+        },
+        {
+          "title": "易酷调料抽250柜",
+          "pageType": "fact",
+          "score": 87,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0263_极限安装_易酷调料抽250柜.md"
+        },
+        {
+          "title": "150柜窄柜调料抽",
+          "pageType": "fact",
+          "score": 85.4,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0266_极限安装_150柜窄柜调料抽.md"
+        },
+        {
+          "title": "安装尺寸缺少产品名反问口径",
+          "pageType": "fact",
+          "score": 85.4,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0011_尺寸与安装_安装尺寸缺少产品名反问口径.md"
+        }
+      ]
+    },
+    {
+      "question": "抽屉深度特殊定制范围：",
+      "hasEvidence": true,
+      "topScore": 184.33,
+      "hits": [
+        {
+          "title": "定制范围",
+          "pageType": "fact",
+          "score": 184.33,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0237_尺寸与安装_定制范围.md"
+        },
+        {
+          "title": "抽屉轨道深度安装判断口径",
+          "pageType": "fact",
+          "score": 97.67,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0012_尺寸与安装_抽屉轨道深度安装判断口径.md"
+        },
+        {
+          "title": "安装尺寸缺少产品名反问口径",
+          "pageType": "fact",
+          "score": 95,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0011_尺寸与安装_安装尺寸缺少产品名反问口径.md"
+        },
+        {
+          "title": "深度体系",
+          "pageType": "fact",
+          "score": 92.33,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0231_尺寸与安装_深度体系.md"
+        },
+        {
+          "title": "150柜窄柜调料抽",
+          "pageType": "fact",
+          "score": 87,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0266_极限安装_150柜窄柜调料抽.md"
+        }
+      ]
+    },
+    {
+      "question": "定制最小的抽屉深度255",
+      "hasEvidence": true,
+      "topScore": 98.64,
+      "hits": [
+        {
+          "title": "深度体系",
+          "pageType": "fact",
+          "score": 98.64,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0231_尺寸与安装_深度体系.md"
+        },
+        {
+          "title": "抽屉轨道深度安装判断口径",
+          "pageType": "fact",
+          "score": 94.27,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0012_尺寸与安装_抽屉轨道深度安装判断口径.md"
+        },
+        {
+          "title": "倾松抽",
+          "pageType": "fact",
+          "score": 92.09,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0251_极限安装_倾松抽.md"
+        },
+        {
+          "title": "四代抽屉式魔法抽",
+          "pageType": "fact",
+          "score": 92.09,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0249_极限安装_四代抽屉式魔法抽.md"
+        },
+        {
+          "title": "四代开门式魔法抽",
+          "pageType": "fact",
+          "score": 92.09,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0250_极限安装_四代开门式魔法抽.md"
+        }
+      ]
+    },
+    {
+      "question": "这个高度",
+      "hasEvidence": true,
+      "topScore": 93,
+      "hits": [
+        {
+          "title": "四代魔法抽",
+          "pageType": "fact",
+          "score": 93,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0038_抽屉产品_四代魔法抽.md"
+        },
+        {
+          "title": "地柜置物架",
+          "pageType": "fact",
+          "score": 85,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0152_置物架_地柜置物架.md"
+        },
+        {
+          "title": "定制范围",
+          "pageType": "fact",
+          "score": 85,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0237_尺寸与安装_定制范围.md"
+        },
+        {
+          "title": "定制规则",
+          "pageType": "fact",
+          "score": 85,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0115_升降机_定制规则.md"
+        },
+        {
+          "title": "倾松抽",
+          "pageType": "fact",
+          "score": 85,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0251_极限安装_倾松抽.md"
+        }
+      ]
+    },
+    {
+      "question": "5-6层都是可以的  如果物品高度低  数量多  抽屉还能增加",
+      "hasEvidence": true,
+      "topScore": 82.22,
+      "hits": [
+        {
+          "title": "四代魔法抽",
+          "pageType": "fact",
+          "score": 82.22,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0038_抽屉产品_四代魔法抽.md"
+        },
+        {
+          "title": "尚酷抽",
+          "pageType": "fact",
+          "score": 80.13,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0039_抽屉产品_尚酷抽.md"
+        },
+        {
+          "title": "尚酷抽开门式",
+          "pageType": "fact",
+          "score": 80.13,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0253_极限安装_尚酷抽开门式.md"
+        },
+        {
+          "title": "地柜置物架",
+          "pageType": "fact",
+          "score": 79.09,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0152_置物架_地柜置物架.md"
+        },
+        {
+          "title": "定制范围",
+          "pageType": "fact",
+          "score": 79.09,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0237_尺寸与安装_定制范围.md"
+        }
+      ]
+    },
+    {
+      "question": "请问茶室柜子的内空尺寸（宽、深、高）是多少？这样才能帮您算能配几个抽屉哦。",
+      "hasEvidence": true,
+      "topScore": 127.4,
+      "hits": [
+        {
+          "title": "尺寸",
+          "pageType": "fact",
+          "score": 127.4,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0104_尺寸与安装_尺寸.md"
+        },
+        {
+          "title": "谷物盒别名与可视款密封罐尺寸精准口径",
+          "pageType": "fact",
+          "score": 85.4,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0005_尺寸与安装_谷物盒别名与可视款密封罐尺寸精准口径.md"
+        },
+        {
+          "title": "绘画A模块-800",
+          "pageType": "fact",
+          "score": 78.6,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0165_置物架_绘画A模块-800.md"
+        },
+        {
+          "title": "绘画B模块-600",
+          "pageType": "fact",
+          "score": 78.6,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0166_置物架_绘画B模块-600.md"
+        },
+        {
+          "title": "书房C模块-800",
+          "pageType": "fact",
+          "score": 78.6,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0170_置物架_书房C模块-800.md"
+        }
+      ]
+    },
+    {
+      "question": "这台尚酷升降机有异响",
+      "hasEvidence": true,
+      "topScore": 115.67,
+      "hits": [
+        {
+          "title": "尚酷双层",
+          "pageType": "application",
+          "score": 115.67,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0317_二、升降机系列_吊柜_尚酷双层.md"
+        }
+      ]
+    },
+    {
+      "question": "这个半抽最窄可以定制多宽",
+      "hasEvidence": false,
+      "topScore": 0,
+      "hits": []
+    },
+    {
+      "question": "请问130H分隔抽（600柜）无门，下哪款？双开定制吗？",
+      "hasEvidence": true,
+      "topScore": 61.82,
+      "hits": [
+        {
+          "title": "四代魔法抽",
+          "pageType": "fact",
+          "score": 61.82,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0038_抽屉产品_四代魔法抽.md"
+        },
+        {
+          "title": "定制范围",
+          "pageType": "fact",
+          "score": 57.55,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0237_尺寸与安装_定制范围.md"
+        },
+        {
+          "title": "尺寸规格",
+          "pageType": "fact",
+          "score": 57.45,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0085_尺寸与安装_尺寸规格.md"
+        },
+        {
+          "title": "尚酷高柜七件套",
+          "pageType": "fact",
+          "score": 56.45,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0090_抽屉产品_尚酷高柜七件套.md"
+        },
+        {
+          "title": "梳妆台A模块-600",
+          "pageType": "fact",
+          "score": 56.45,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0173_置物架_梳妆台A模块-600.md"
+        }
+      ]
+    },
+    {
+      "question": "宽度也是标准150的",
+      "hasEvidence": true,
+      "topScore": 87.67,
+      "hits": [
+        {
+          "title": "靓炊架（墙上调料架）",
+          "pageType": "fact",
+          "score": 87.67,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0141_置物架_靓炊架（墙上调料架）.md"
+        },
+        {
+          "title": "定制规则",
+          "pageType": "fact",
+          "score": 85,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0115_升降机_定制规则.md"
+        },
+        {
+          "title": "定制范围",
+          "pageType": "fact",
+          "score": 82.33,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0237_尺寸与安装_定制范围.md"
+        },
+        {
+          "title": "碗碟类（10 款）",
+          "pageType": "fact",
+          "score": 82.33,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0068_抽屉产品_碗碟类（10 款）.md"
+        },
+        {
+          "title": "参数",
+          "pageType": "fact",
+          "score": 79.67,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0133_升降机_参数.md"
+        }
+      ]
+    },
+    {
+      "question": "@覃润春(覃润春) 是的 只能走定制哦",
+      "hasEvidence": false,
+      "topScore": 0,
+      "hits": []
+    },
+    {
+      "question": "尚酷雪花灰和酷太lll",
+      "hasEvidence": true,
+      "topScore": 110.33,
+      "hits": [
+        {
+          "title": "尚酷双层",
+          "pageType": "application",
+          "score": 110.33,
+          "sourcePath": "Dify知识库导入包/06_规划师设计知识卡/02_产品应用卡_按产品拆分/0317_二、升降机系列_吊柜_尚酷双层.md"
+        },
+        {
+          "title": "挂多多（墙面横杆模块系统）",
+          "pageType": "fact",
+          "score": 63.67,
+          "sourcePath": "Dify知识库导入包/基础产品知识卡/0142_置物架_挂多多（墙面横杆模块系统）.md"
+        }
+      ]
+    }
+  ]
+}

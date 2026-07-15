@@ -1,0 +1,23 @@
+{
+  "name": "dingtalk-bot-bridge",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node server.js",
+    "bot": "node server.js",
+    "auto-reply": "node auto-reply.js",
+    "test": "node --test test/*.test.js",
+    "test:drawer": "node tools/test-drawer-customization-replies.js",
+    "wiki:build": "node tools/build-llm-wiki.js",
+    "wiki:test": "node tools/test-llm-wiki.js",
+    "wiki:test-safeguards": "node tools/test-llm-wiki-safeguards.js",
+    "wiki:audit": "node tools/audit-llm-wiki-history.js",
+    "wiki:audit-100": "node tools/run-llm-wiki-100-audit.js",
+    "wiki:audit-dingtalk-100": "node tools/audit-dingtalk-100-product-questions.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.0",
+    "dingtalk-stream": "^2.1.6-beta.1",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.0"
+  }
+}

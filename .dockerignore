@@ -1,0 +1,15 @@
+node_modules
+.env
+data
+runtime
+*.log
+*.pid
+auto-reply-state.json
+auto-reply.disabled
+待回复队列.json
+待回复队列.md
+bot-reply-audit.jsonl
+tmp
+归档
+*.html
+*.docx
