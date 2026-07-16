@@ -8,7 +8,6 @@ services:
     env_file:
       - .env
     environment:
-      DIFY_BASE_URL: http://host.docker.internal:8088
       BOT_AUDIT_LOG_FILE: /app/data/bot-reply-audit.jsonl
       RUNTIME_DIR: /app/runtime
       PRODUCT_KB_ROOT: /app/knowledge

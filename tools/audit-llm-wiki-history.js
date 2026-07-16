@@ -5,7 +5,7 @@ const { LlmWiki } = require('../lib/llm-wiki');
 const historyDir = process.env.HISTORY_DIR || path.resolve(__dirname, '..', 'data', 'conversations');
 const reportFile = process.env.LLM_WIKI_AUDIT_REPORT || path.resolve(__dirname, '..', 'self-audit', 'llm-wiki-retrieval-audit.json');
 const wiki = new LlmWiki({
-  root: process.env.LLM_WIKI_ROOT || path.resolve(__dirname, '..', '..', 'Dify知识库导入包', 'LLM-Wiki'),
+  root: process.env.LLM_WIKI_ROOT || path.resolve(__dirname, '..', '..', '产品知识库', 'LLM-Wiki'),
   minScore: Number(process.env.LLM_WIKI_MIN_SCORE || 18),
 });
 const productCue = /抽屉|轨道|导轨|安装|尺寸|柜体|柜内|净宽|净深|净高|魔法抽|尚酷|中枢阁|翼枢阁|挂门宝|云狐|云梯|云阁|百纳阁|小怪物|拉篮|升降机|收纳架|挂盒|门板|碗碟|锅具|调料|水槽|承重|深度|宽度|高度|定制|连门|开门/;

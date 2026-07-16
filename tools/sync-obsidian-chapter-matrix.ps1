@@ -1,6 +1,6 @@
 ﻿param(
   [string]$SourceRoot = 'D:\AI\酷太\产品知识库\01_MD章节矩阵',
-  [string]$VaultRoot = 'D:\AI\产品自动回复\Dify知识库导入包\_Dify上传合集',
+  [string]$VaultRoot = 'D:\AI\产品自动回复\产品知识库',
   [string]$TargetFolder = '11_未拆分章节矩阵原文'
 )
 

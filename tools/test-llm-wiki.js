@@ -5,7 +5,7 @@ const { LlmWiki } = require('../lib/llm-wiki');
 const wiki = new LlmWiki({
   root: process.env.LLM_WIKI_ROOT || (process.env.KNOWLEDGE_ROOT
     ? path.join(process.env.KNOWLEDGE_ROOT, 'LLM-Wiki')
-    : path.resolve(__dirname, '..', '..', 'Dify知识库导入包', 'LLM-Wiki')),
+    : path.resolve(__dirname, '..', '..', '产品知识库', 'LLM-Wiki')),
   minScore: 18,
 });
 

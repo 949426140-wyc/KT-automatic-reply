@@ -388,18 +388,11 @@ function replyLooksBad(text) {
 }
 
 const CONFIG = {
-  aiProvider: (process.env.AI_PROVIDER || (process.env.DIFY_API_KEY ? 'dify' : 'deepseek')).toLowerCase(),
+  // 产品事实仅允许走“LLM Wiki 检索 → DeepSeek 基于证据组织语言”的唯一链路。
+  aiProvider: 'deepseek',
   aiKey: process.env.AI_API_KEY || '',
   aiUrl: process.env.AI_API_URL || 'https://api.deepseek.com/v1/chat/completions',
   aiModel: process.env.AI_MODEL || 'deepseek-chat',
-  difyApiKey: process.env.DIFY_API_KEY || '',
-  difyBaseUrl: (process.env.DIFY_BASE_URL || 'http://localhost:8088').replace(/\/+$/, ''),
-  difyApiUrl: process.env.DIFY_API_URL || '',
-  difyAppType: (process.env.DIFY_APP_TYPE || 'chat').toLowerCase(),
-  difyResponseMode: process.env.DIFY_RESPONSE_MODE || 'blocking',
-  difyUser: process.env.DIFY_USER || 'kutai-dingtalk-auto-reply',
-  difyTimeoutMs: parseInt(process.env.DIFY_TIMEOUT_SEC || '45', 10) * 1000,
-  difyFallbackToDeepSeek: process.env.DIFY_FALLBACK_TO_DEEPSEEK !== 'false',
   llmWikiEnabled: process.env.LLM_WIKI_ENABLED !== 'false',
   llmWikiStrict: process.env.LLM_WIKI_STRICT !== 'false',
   llmWikiMaxPages: parseInt(process.env.LLM_WIKI_MAX_PAGES || '6', 10),
@@ -1010,116 +1003,7 @@ async function callDeepSeekAI(systemPrompt, userPrompt) {
   }
 }
 
-function difyEndpoint() {
-  if (CONFIG.difyApiUrl) return CONFIG.difyApiUrl;
-  const route = CONFIG.difyAppType === 'workflow' ? 'workflows/run' : 'chat-messages';
-  return `${CONFIG.difyBaseUrl}/v1/${route}`;
-}
-
-function parseJsonFromText(text) {
-  const cleaned = String(text || '').trim()
-    .replace(/^```(?:json)?/i, '')
-    .replace(/```$/i, '')
-    .trim();
-  try { return JSON.parse(cleaned); } catch {}
-  const start = cleaned.indexOf('{');
-  const end = cleaned.lastIndexOf('}');
-  if (start >= 0 && end > start) {
-    try { return JSON.parse(cleaned.slice(start, end + 1)); } catch {}
-  }
-  return null;
-}
-
-function normalizeDifyAnswer(answer) {
-  const text = String(answer || '').trim();
-  if (!text) return 'SKIP';
-
-  const parsed = parseJsonFromText(text);
-  if (parsed && typeof parsed === 'object') {
-    const decision = String(parsed.decision || parsed.action || parsed.status || '').toLowerCase();
-    const reply = String(parsed.reply || parsed.answer || parsed.text || '').trim();
-    const reason = String(parsed.reason || parsed.why || '').trim();
-    const suggestion = String(parsed.suggestion || parsed.suggested_reply || reply || '').trim();
-
-    if (['skip', 'no_reply', 'ignore'].includes(decision)) return 'SKIP';
-    if (['review', 'manual', 'uncertain'].includes(decision)) {
-      return `REVIEW: 原因: ${reason || 'Dify 要求人工确认'} 建议: ${suggestion || '转人工确认'}`;
-    }
-    if (['ask', 'clarify', 'reply', 'send_asset'].includes(decision) && reply) return reply;
-    if (reply) return reply;
-  }
-
-  return text;
-}
-
-async function callDifyAI(systemPrompt, userPrompt) {
-  if (!CONFIG.difyApiKey) {
-    console.error('[AI] 缺少 DIFY_API_KEY，当前消息跳过');
-    return '__DIFY_ERROR__';
-  }
-
-  const endpoint = difyEndpoint();
-  const commonInputs = {
-    system_prompt: systemPrompt,
-    dingtalk_context: userPrompt,
-    source: 'dingtalk_auto_reply',
-  };
-  const body = CONFIG.difyAppType === 'workflow'
-    ? {
-        inputs: {
-          ...commonInputs,
-          query: userPrompt,
-          user_prompt: userPrompt,
-        },
-        response_mode: CONFIG.difyResponseMode,
-        user: CONFIG.difyUser,
-      }
-    : {
-        inputs: commonInputs,
-        query: userPrompt,
-        response_mode: CONFIG.difyResponseMode,
-        user: CONFIG.difyUser,
-      };
-
-  const result = await requestJson(endpoint, body, {
-    Authorization: `Bearer ${CONFIG.difyApiKey}`,
-  }, CONFIG.difyTimeoutMs);
-
-  if (!result.ok) {
-    const detail = result.raw ? String(result.raw).slice(0, 300) : (result.error || (result.timeout ? 'timeout' : 'unknown'));
-    console.error(`[AI] Dify 请求失败: ${result.statusCode || ''} ${detail}`);
-    return '__DIFY_ERROR__';
-  }
-
-  const data = result.body || {};
-  const outputs = data.data?.outputs || data.outputs || {};
-  const answer = data.answer ||
-    outputs.answer ||
-    outputs.reply ||
-    outputs.text ||
-    outputs.result ||
-    Object.values(outputs).find(v => typeof v === 'string') ||
-    '';
-
-  return normalizeDifyAnswer(answer);
-}
-
 async function callAI(systemPrompt, userPrompt) {
-  if (CONFIG.aiProvider === 'dify') {
-    const difyReply = await callDifyAI(systemPrompt, userPrompt);
-    if (difyReply !== '__DIFY_ERROR__' || !CONFIG.difyFallbackToDeepSeek) {
-      return difyReply === '__DIFY_ERROR__' ? 'SKIP' : difyReply;
-    }
-    console.log('[AI] Dify 请求失败，回退 DeepSeek');
-    return callDeepSeekAI(systemPrompt, userPrompt);
-  }
-  if (CONFIG.aiProvider === 'auto' && CONFIG.difyApiKey) {
-    const difyReply = await callDifyAI(systemPrompt, userPrompt);
-    if (difyReply !== '__DIFY_ERROR__' || !CONFIG.difyFallbackToDeepSeek) {
-      return difyReply === '__DIFY_ERROR__' ? 'SKIP' : difyReply;
-    }
-    console.log('[AI] Dify 请求失败，回退 DeepSeek');
-  }
   return callDeepSeekAI(systemPrompt, userPrompt);
 }
 
@@ -2015,10 +1899,8 @@ function looksLikeProductIntroductionRequest(text) {
 function plannerPitchKnowledgeCandidates() {
   const fileName = '10_魔法抽产品介绍话术专项.md';
   return [
-    path.join(AI_PLANNER_SOURCE_DIR, '_Dify上传合集', fileName),
-    path.join(AI_PLANNER_SOURCE_DIR, fileName),
-    path.join(CURRENT_PRODUCT_KB_ROOT, '_Dify上传合集', fileName),
-    path.join(CURRENT_PRODUCT_KB_ROOT, fileName),
+    path.join(AI_PLANNER_SOURCE_DIR, 'LLM-Wiki', 'source', '05_精准知识卡', '_Wiki检索合集', fileName),
+    path.join(CURRENT_PRODUCT_KB_ROOT, 'LLM-Wiki', 'source', '05_精准知识卡', '_Wiki检索合集', fileName),
   ];
 }
 
@@ -2115,10 +1997,8 @@ function buildMagicDrawerParameterReplyFromKnowledge(text) {
   const candidates = [
     path.join(AI_PLANNER_SOURCE_DIR, '基础产品知识卡', '0291_尺寸与安装_魔法抽通用规格参数问法.md'),
     path.join(AI_PLANNER_SOURCE_DIR, '01_MD章节矩阵', '16-自动回复精准规则补充.md'),
-    path.join(AI_PLANNER_SOURCE_DIR, '_Dify上传合集', '06_尺寸安装与极限安装.md'),
     path.join(CURRENT_PRODUCT_KB_ROOT, '基础产品知识卡', '0291_尺寸与安装_魔法抽通用规格参数问法.md'),
     path.join(CURRENT_PRODUCT_KB_ROOT, '01_MD章节矩阵', '16-自动回复精准规则补充.md'),
-    path.join(CURRENT_PRODUCT_KB_ROOT, '_Dify上传合集', '06_尺寸安装与极限安装.md'),
   ];
   const knowledge = candidates.map(readExistingText).find(content => content.includes('# 魔法抽通用规格参数问法') || content.includes('标准宽度问法')) || '';
   const match = knowledge.match(new RegExp(`^- ${field}：(.+)$`, 'm'));
@@ -2917,9 +2797,7 @@ function loadDrawerWidthFormulaFromKnowledge() {
     // 当前 Obsidian 矩阵：产品结构/尺寸事实的唯一优先来源。
     path.join(CURRENT_PRODUCT_KB_ROOT, '01_MD章节矩阵', '10-尺寸体系与安装.md'),
     path.join(AI_PLANNER_SOURCE_DIR, '01_MD章节矩阵', '10-尺寸体系与安装.md'),
-    path.join(CURRENT_PRODUCT_KB_ROOT, '_Dify上传合集', '06_尺寸安装与极限安装.md'),
     path.join(CURRENT_PRODUCT_KB_ROOT, '06_尺寸安装与极限安装.md'),
-    path.join(AI_PLANNER_SOURCE_DIR, '_Dify上传合集', '06_尺寸安装与极限安装.md'),
     path.join(AI_PLANNER_SOURCE_DIR, '06_尺寸安装与极限安装.md'),
   ];
   for (const file of candidates) {
@@ -2931,7 +2809,7 @@ function loadDrawerWidthFormulaFromKnowledge() {
       const match = text.match(new RegExp(`\\|\\s*${escaped}\\s*\\|[^\\n]*\\|\\s*W\\s*-\\s*(\\d+(?:\\.\\d+)?)mm\\s*\\|`));
       if (match) formulas[type] = Number(match[1]);
 
-      // Obsidian 当前矩阵以“800 - 18×2 - …”保存公式，不再使用旧 Dify 的 “W - 扣尺” 格式。
+      // Obsidian 当前矩阵以“800 - 18×2 - …”保存公式，不再使用旧格式的 “W - 扣尺” 写法。
       // 这里仅解析知识卡中的算式为扣尺；具体数值仍完全由产品知识卡维护。
       if (!formulas[type]) {
         const row = text.match(new RegExp(`^\\|\\s*魔法抽\\s*\\|\\s*${escaped}\\s*\\|\\s*([^|]+?)\\s*\\|`, 'm'));
@@ -2988,9 +2866,7 @@ function buildDrawerWidthRuleReply(text, context = '') {
 
 function installationKnowledgeCandidates() {
   return [
-    path.join(CURRENT_PRODUCT_KB_ROOT, '_Dify上传合集', '06_尺寸安装与极限安装.md'),
     path.join(CURRENT_PRODUCT_KB_ROOT, '06_尺寸安装与极限安装.md'),
-    path.join(AI_PLANNER_SOURCE_DIR, '_Dify上传合集', '06_尺寸安装与极限安装.md'),
     path.join(AI_PLANNER_SOURCE_DIR, '06_尺寸安装与极限安装.md'),
   ];
 }
@@ -3994,7 +3870,7 @@ ${buildPromptProductKnowledge(`${single}\n${contextStr}`)}`;
   }
 }
 
-// ====== 机器人入口：复用现有知识库、Dify、视觉和过滤规则，单条消息决策 ======
+// ====== 机器人入口：复用 LLM Wiki、视觉和过滤规则，单条消息决策 ======
 function normalizeEngineMessage(raw) {
   const base = fmtMsg(raw || {});
   if (raw?.id) base.id = raw.id;
@@ -4358,13 +4234,13 @@ async function processSingleMessageForAutoReply({
     return sendAndRecord(
       spiceDrawerInstallationReply,
       'local_spice_drawer_installation_rule',
-      '调料整抽安装规则：从产品知识卡读取柜内净高与净深要求，不依赖 Dify 检索命中。'
+      '调料整抽安装规则：从产品知识卡读取柜内净高与净深要求，不依赖泛化检索命中。'
     );
   }
 
   const knownInstallationReply = buildKnownInstallationCardReplyFromKnowledge(plainContent || currentContent);
   if (knownInstallationReply) {
-    return sendAndRecord(knownInstallationReply, 'local_known_installation_card_rule', '精确安装卡规则：从对应产品极限安装知识卡读取尺寸，不依赖 Dify 检索命中。');
+    return sendAndRecord(knownInstallationReply, 'local_known_installation_card_rule', '精确安装卡规则：从对应产品极限安装知识卡读取尺寸，不依赖泛化检索命中。');
   }
 
   const localImageReply = buildProductImageRuleReply(plainContent || currentContent, contextStr);
@@ -4382,7 +4258,7 @@ async function processSingleMessageForAutoReply({
     return sendAndRecord(
       productIntroductionReply,
       'local_product_introduction_rule',
-      '产品介绍话术：从规划师话术 MD 读取对应产品的标准介绍，不依赖 Dify 检索命中。'
+      '产品介绍话术：从规划师话术 MD 读取对应产品的标准介绍，不依赖泛化检索命中。'
     );
   }
 
@@ -4575,29 +4451,22 @@ async function ensureEngineReady() {
   loadProductKnowledge();
   loadCustomerServiceKnowledge();
   if (!hasUsableAiProvider()) {
-    throw new Error('缺少可用 AI 配置：Dify 模式需要 DIFY_API_KEY；DeepSeek 模式需要 AI_API_KEY。');
+    throw new Error('缺少 AI_API_KEY，无法调用 DeepSeek 组织基于 LLM Wiki 证据的回复。');
   }
   engineReady = true;
 }
 
 // ====== 启动 ======
 function hasUsableAiProvider() {
-  if (CONFIG.aiProvider === 'deepseek') return Boolean(CONFIG.aiKey);
-  if (CONFIG.aiProvider === 'dify') return Boolean(CONFIG.difyApiKey) || (CONFIG.difyFallbackToDeepSeek && Boolean(CONFIG.aiKey));
-  if (CONFIG.aiProvider === 'auto') return Boolean(CONFIG.difyApiKey || CONFIG.aiKey);
-  return false;
+  return Boolean(CONFIG.aiKey);
 }
 
 async function main() {
   console.log('='.repeat(46));
   console.log('  钉钉群消息 AI 自动回复服务');
   console.log('='.repeat(46));
-  console.log(`  AI Provider: ${CONFIG.aiProvider}`);
+  console.log('  AI 链路: LLM Wiki 检索 → DeepSeek 基于证据组织回复');
   console.log(`  DeepSeek: ${CONFIG.aiModel}`);
-  if (CONFIG.aiProvider === 'dify' || CONFIG.aiProvider === 'auto') {
-    console.log(`  Dify: ${CONFIG.difyAppType} ${difyEndpoint()}`);
-    console.log(`  Dify失败回退DeepSeek: ${CONFIG.difyFallbackToDeepSeek ? '开启' : '关闭'}`);
-  }
   console.log(`  轮询: 每 ${CONFIG.pollInterval / 1000}s`);
   console.log(`  过滤自己: ${CONFIG.skipSelf}`);
   console.log(`  群回复: ${CONFIG.enableGroupReplies ? '开启' : '关闭'}`);
@@ -4614,10 +4483,7 @@ async function main() {
   loadProductKnowledge();
   loadCustomerServiceKnowledge();
   if (!hasUsableAiProvider()) {
-    throw new Error('缺少可用 AI 配置：Dify 模式需要 DIFY_API_KEY；DeepSeek 模式需要 AI_API_KEY。');
-  }
-  if (CONFIG.aiProvider === 'dify' && !CONFIG.difyApiKey && CONFIG.difyFallbackToDeepSeek) {
-    console.log('[AI] 当前未配置 DIFY_API_KEY，将临时回退 DeepSeek。');
+    throw new Error('缺少 AI_API_KEY，无法调用 DeepSeek 组织基于 LLM Wiki 证据的回复。');
   }
   console.log('\n开始轮询 (Ctrl+C 停止)...\n');
 
