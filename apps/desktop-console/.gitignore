@@ -1,0 +1,5 @@
+node_modules/
+*.log
+
+# Electron 构建产物可由 pnpm run dist 重新生成；当前发行包可按需保留在 dist/。
+dist/win-unpacked/

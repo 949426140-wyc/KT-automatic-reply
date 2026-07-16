@@ -23,6 +23,10 @@ docker compose up -d --build
 docker compose ps
 ```
 
+## 桌面控制台 UI
+
+桌面控制台源码位于 [`apps/desktop-console`](apps/desktop-console/README.md)。它用于查看机器人、LLM Wiki 索引和待审核队列，并在本机执行启动、停止和自测操作；打包后的 Windows 可执行文件不提交到 GitHub。
+
 ## 验证
 
 基础测试：

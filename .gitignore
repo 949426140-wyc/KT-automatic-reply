@@ -8,3 +8,9 @@ self-audit/
 *.log
 *.pid
 auto-reply-runtime.out.log
+
+# Desktop console: keep only source files in Git.
+apps/desktop-console/node_modules/
+apps/desktop-console/dist/
+apps/desktop-console/workspace-root.txt
+apps/desktop-console/console-main-errors.log

@@ -1,0 +1,33 @@
+{
+  "name": "kutai-server-console",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Kutai local server console for LLM Wiki and DingTalk auto-reply services.",
+  "main": "electron-main.js",
+  "scripts": {
+    "preview": "node server.js",
+    "electron": "electron .",
+    "dist": "electron-builder --win portable"
+  },
+  "devDependencies": {
+    "electron": "^31.7.7",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "cn.kutai.autoReplyConsole",
+    "productName": "\u9177\u592a\u670d\u52a1\u5668\u63a7\u5236\u53f0",
+    "artifactName": "\u9177\u592a\u670d\u52a1\u5668\u63a7\u5236\u53f0-${version}.${ext}",
+    "files": [
+      "**/*"
+    ],
+    "win": {
+      "signAndEditExecutable": false,
+      "target": [
+        "portable"
+      ]
+    },
+    "portable": {
+      "artifactName": "\u9177\u592a\u670d\u52a1\u5668\u63a7\u5236\u53f0.exe"
+    }
+  }
+}
