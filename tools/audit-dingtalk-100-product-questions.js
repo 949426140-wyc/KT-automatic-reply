@@ -6,6 +6,7 @@ const sourceRoot = process.env.DINGTALK_HISTORY_ROOT || '/dingtalk-source';
 const reportFile = process.env.DINGTALK_100_MD_REPORT || '/app/data/钉钉群100个产品问题内部模拟回复.md';
 const jsonReportFile = reportFile.replace(/\.md$/i, '.json');
 const limit = Number(process.env.DINGTALK_AUDIT_LIMIT || 100);
+const replyReadyOnly = process.env.DINGTALK_AUDIT_REPLY_READY_ONLY === 'true';
 const fallbackReportFile = process.env.DINGTALK_AUDIT_FALLBACK_REPORT || '/dingtalk-source/data/钉钉群100个产品问题内部模拟回复_屏蔽员工.json';
 const fallbackReportFile2 = process.env.DINGTALK_AUDIT_FALLBACK_REPORT_2 || '/dingtalk-source/data/钉钉群100个产品问题内部模拟回复.json';
 const pendingKnowledgeHistoryFile = process.env.DINGTALK_AUDIT_PENDING_HISTORY || '/dingtalk-source/产品知识库/酷太自动回复待确认.md';
@@ -86,21 +87,66 @@ function extractLearnedThreads(file, output) {
   }
 }
 
+// 旧服务器保留了从钉钉群分页拉取的原始回放。它不是人工出题集，
+// 因此可作为审计样本来源；仅读取，不回写，也不会向钉钉发送消息。
+function extractScanListPages(file, output) {
+  const payload = readJson(file);
+  const pages = Array.isArray(payload) ? payload : payload?.pages;
+  if (!Array.isArray(pages)) return;
+  for (const page of pages) {
+    const conversations = page?.result?.conversationMessagesList || page?.conversationMessagesList || [];
+    if (!Array.isArray(conversations)) continue;
+    for (const conversation of conversations) {
+      const group = conversation.title || conversation.openConversationId || path.basename(file, '.json');
+      for (const message of Array.isArray(conversation.messages) ? conversation.messages : []) {
+        const content = cleanContent(message.content);
+        if (!content) continue;
+        output.push({
+          group,
+          time: message.createTime || '',
+          sender: message.sender || '',
+          senderUserId: message.senderOpenDingTalkId || '',
+          content,
+          rawContent: String(message.content || ''),
+          source: '钉钉历史分页原始导出',
+        });
+      }
+    }
+  }
+}
+
+function extractScannedDingTalkHistory(output) {
+  if (!fs.existsSync(sourceRoot)) return;
+  const names = fs.readdirSync(sourceRoot)
+    .filter(name => /^scan-list-all.*\.json$/i.test(name));
+  for (const name of names) extractScanListPages(path.join(sourceRoot, name), output);
+}
+
 function extractHistoricalReportFallback(file, output) {
   const report = readJson(file);
   if (!Array.isArray(report?.results)) return;
   for (const item of report.results) {
-    if (!item?.content) continue;
+    const question = item?.content || item?.question;
+    if (!question) continue;
     output.push({
       group: item.group || '历史钉钉群',
       time: item.time || '',
       sender: item.sender || '',
       role: item.role || '',
-      content: cleanContent(item.content),
-      rawContent: String(item.content || ''),
-      source: '历史钉钉100题回放源',
+      content: cleanContent(question),
+      rawContent: String(question),
+      source: item.question ? '钉钉群历史回放源' : '历史钉钉100题回放源',
     });
   }
+}
+
+// 只补充此前从真实钉钉群导出的审计原始记录；不读取人工造题或知识库测试集。
+function extractAdditionalDingTalkAuditHistory(output) {
+  const dataDir = path.join(sourceRoot, 'data');
+  if (!fs.existsSync(dataDir)) return;
+  const names = fs.readdirSync(dataDir).filter(name => /^(?:audit-(?:divider|legacy)-verify|钉钉群100个产品问题内部模拟回复_(?:原图规则复测|复测含跳过清单))\.json$/.test(name));
+  for (const name of names) extractHistoricalReportFallback(path.join(dataDir, name), output);
+  extractHistoricalReportFallback(path.join(sourceRoot, 'self-audit', 'product-self-audit.json'), output);
 }
 
 // 这是此前从真实钉钉群整理出来、尚待知识确认的原始上下文。每个“上下文”段落
@@ -140,15 +186,24 @@ function gatherMessages() {
   extractSharedHistory(path.join(sourceRoot, 'data', 'shared-history.json'), output);
   extractLearningCases(path.join(sourceRoot, '产品知识库', '酷太客服群聊学习候选规则.json'), output);
   extractLearnedThreads(path.join(sourceRoot, 'learned-threads.json'), output);
+  extractScannedDingTalkHistory(output);
   // 回放此前已从真实钉钉历史拉取的原始问题文本；不造题、不补模糊问句。
   extractHistoricalReportFallback(fallbackReportFile, output);
   extractHistoricalReportFallback(fallbackReportFile2, output);
+  extractAdditionalDingTalkAuditHistory(output);
   extractPendingKnowledgeHistory(pendingKnowledgeHistoryFile, output);
   return output;
 }
 
 function isExcludedBusinessQuestion(text) {
-  return /发货|物流|快递|单号|订单|下单|退款|退货|换货|补发|取件|运费|付款|支付|价格|多少钱|报价|折扣|优惠|库存|有货|缺货|上架|下架|商城|小程序|发票|合同|财务|客资|报备|售后|投诉|直播|打款|返差|账号|登录|验证码/.test(text);
+  return bot.looksLikeCustomerServiceQuestion(text) ||
+    /发货|物流|快递|单号|订单|下单|下错|错下|删除|删掉|移除|拉进(?:房间|项目)|退款|退货|换货|补发|取件|运费|付款|支付|价格|多少钱|报价|折扣|优惠|库存|有货|缺货|上架|下架|商城|小程序|方圆|圆方|天猫|淘宝|制作周期|定制周期|交期|时效|返厂|寄到店|业主.*(?:电话|联系方式)|(?:坏的|损坏).*(?:轨道|导轨|配件|产品)|发票|合同|财务|客资|报备|售后|投诉|直播|打款|返差|账号|登录|验证码/.test(text);
+}
+
+function isReplyReadyProductDecision(item, decision) {
+  if (decision.action !== 'reply_ready') return false;
+  const text = `${item.content || ''}\n${decision.reply || ''}`;
+  return !isExcludedBusinessQuestion(text) && !bot.looksLikeProductPlatformOperationQuestion(text);
 }
 
 function isProductQuestion(text) {
@@ -234,7 +289,8 @@ async function main() {
         sourcePrefix: '钉钉群100产品问题只读模拟',
       });
       // 图片和文字上下文仍无法定位产品的跟问，不能作为“产品问题”单独出现在审计报告里。
-      if (decision.reason !== 'ambiguous_context_unresolved') {
+      // 纯候选审计只保留真正会生成产品答复的样本，跳过与人工项不占用额度。
+      if (decision.reason !== 'ambiguous_context_unresolved' && (!replyReadyOnly || isReplyReadyProductDecision(item, decision))) {
         results.push({
           ...item,
           number: results.length + 1,
@@ -262,7 +318,7 @@ async function main() {
     return acc;
   }, {});
   const lines = [
-    '# 钉钉群100个产品问题内部模拟回复报告',
+    replyReadyOnly ? `# 钉钉群${limit}个可回复产品问题内部模拟回复报告` : '# 钉钉群100个产品问题内部模拟回复报告',
     '',
     `> 生成时间：${new Date().toISOString()}`,
     '> 数据范围：本机此前通过钉钉接口同步的真实群会话缓存、共享群历史和客服群学习记录。',
@@ -270,12 +326,13 @@ async function main() {
     '> 本轮还使用“钉钉群历史待确认记录”补足历史原文；只取其中带发送人、且通过员工过滤的具体产品问句。',
     '> 人员过滤：取样前已按员工角色、员工姓名关键词和员工 userId 排除内部员工消息；员工回复不进入100条问题样本。',
     '> 安全说明：本轮只做内部模拟，没有提供发送接口，不会向任何钉钉群发送消息。群名中的手机号和订单号已隐藏。',
+    ...(replyReadyOnly ? ['> 本报告只保留 `reply_ready` 的产品候选；订单、物流、售后、平台/下单操作（含 Mate2.0 / Mat20）、人工确认和上下文不足项均已筛除。'] : []),
     '',
     '## 汇总',
     '',
     `- 原始群消息数：${messages.length}`,
     `- 取样前排除员工消息：${employeeMessages.length}`,
-    `- 筛选后的产品问题：${results.length}`,
+    `- ${replyReadyOnly ? '筛选后的可回复产品问题' : '筛选后的产品问题'}：${results.length}`,
     `- 可回复候选：${summary.reply_ready || 0}`,
     `- 转人工确认：${(summary.review || 0) + (summary.queued || 0)}`,
     `- 本地过滤/跳过：${summary.skip || 0}`,
@@ -305,6 +362,7 @@ async function main() {
     lines.push('');
   }
 
+  if (!replyReadyOnly) {
   const skipped = results.filter(item => item.action === 'skip');
   lines.push('## 本轮跳过清单（后置复核）');
   lines.push('');
@@ -346,6 +404,7 @@ async function main() {
     lines.push(`- 跳过原因：${markdownEscape(item.reasonCode ? toChineseReason(item.reasonCode) : item.reason)}`);
     lines.push('- 处理：需要补充同一会话中能定位产品/型号/尺寸的文字或可识别图片，才能重新进入模拟或生产回复。');
     lines.push('');
+  }
   }
 
   fs.mkdirSync(path.dirname(reportFile), { recursive: true });

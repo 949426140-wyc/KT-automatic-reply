@@ -62,9 +62,19 @@ if (IS_MAIN) fs.writeFileSync(PID_FILE, String(myPid));
 // ====== AI 前关键词过滤（不送 AI，直接 SKIP） ======
 const BLOCK_KEYWORDS = AUTO_REPLY_RULES.blockKeywords;
 
+// 发货到店、留收货人电话等属于订单履约信息，必须由订单系统/客服确认，
+// 不能作为产品知识问答交给模型生成回复。
+function looksLikeOrderLogisticsContactQuestion(content) {
+  const text = String(content || '').replace(/\s+/g, '');
+  if (!text) return false;
+  return /(?:寄到|送到|发到|配送到).{0,12}(?:店里|门店|店).{0,30}(?:业主|客户|收货人).{0,20}(?:电话|联系方式)|(?:业主|客户|收货人).{0,16}(?:电话|联系方式).{0,20}(?:寄到|送到|发到|配送到).{0,12}(?:店里|门店|店)|(?:要不要|是否|需不需要|需要).{0,16}(?:留|填|提供).{0,12}(?:业主|客户|收货人).{0,12}(?:电话|联系方式)/.test(text);
+}
+
 function shouldBlock(content) {
   const text = String(content || '');
   return BLOCK_KEYWORDS.some(kw => text.includes(kw)) ||
+    looksLikeOrderLogisticsContactQuestion(text) ||
+    looksLikeCustomerServiceQuestion(text) ||
     looksLikeDiscontinuedLegacySeriesAfterSalesQuestion(text) ||
     looksLikeStockAvailabilityQuestion(text) ||
     /(?:打)?[一二三四五六七八九十\d]+折/.test(text) ||
@@ -181,6 +191,8 @@ function looksLikeAfterSalesInstallAbnormalQuestion(content, context = '') {
 
 function shouldSkipReviewQueueForBlocked(content) {
   const text = content || '';
+  if (looksLikeOrderLogisticsContactQuestion(text)) return true;
+  if (looksLikeCustomerServiceQuestion(text)) return true;
   if (looksLikeDiscontinuedLegacySeriesAfterSalesQuestion(text)) return true;
   const hasOrderNo = /\b(?:KT|S|DPK|SF|E)\d{6,}\b/i.test(text);
   const operationalTerms = /发货|物流|快递|单号|顺丰|德邦|催一下|催下|加急|催单|帮我催|订单进度|什么时候发|多久发货|还没发|退款|退货|换货|退换|换新|调换|置换|售后|补发|取件|运费|退回|审批|审核|审单|已申请|暂停制作|不发货|支付|付款|加购|差价|怎么下|如何下|咋下|下几个|下多少|价格|报价|多少钱|费用|折扣|打折|几折|优惠|活动|促销|商城|小程序|上架|下架|上市|上线|上新|开售|售卖|开卖|绑定|提交|报备|分享码|凭证|收据|财务|客资费|(?:打)?[一二三四五六七八九十\d]+折/.test(text);
@@ -2311,9 +2323,12 @@ function needsProductConfirmationForCabinetDepthInstallation(currentText, contex
 
 function looksLikeProductPlatformOperationQuestion(text) {
   const source = String(text || '').replace(/\s+/g, '');
-  const platform = /Mate2\.0|Mate|设计软件|系统|后台|配置页面|产品库/i.test(source);
-  const operation = /找不到|没有显示|只显示|怎么切换|如何切换|手动切换|在哪里选|不能选|选不了|无法选择|怎么配置|如何配置|上架|下架/.test(source);
-  return platform && operation;
+  // Mate2.0 / Mat20 是产品下单、配置与系统操作入口，不按产品知识问答处理。
+  if (/(?:Mate2(?:\.0)?|Mat20)/i.test(source)) return true;
+  const platform = /Mate2\.0|Mate|方圆|圆方|天猫|淘宝|设计软件|系统|后台|配置页面|产品库/i.test(source);
+  const operation = /找不到|没有显示|只显示|怎么切换|如何切换|手动切换|在哪里选|不能选|选不了|无法选择|怎么配置|如何配置|上架|下架|删除|删掉|移除/.test(source);
+  const orderEntryOperation = /(?:下错|错下|下单错误|拉进(?:房间|项目|订单)|(?:配件|产品|导轨).{0,12}(?:删除|删掉|移除)|找不到.{0,12}(?:删除|删掉|移除)|(?:怎么|如何).{0,10}(?:删除|删掉|移除))/.test(source);
+  return (platform && operation) || orderEntryOperation;
 }
 
 function hasExplicitDimensions(text) {
@@ -2352,7 +2367,7 @@ function shouldForceReviewOnSkip(text) {
 
 function looksLikeCustomerServiceQuestion(text) {
   const source = text || '';
-  return /订单|下单|发货|物流|快递|单号|售后|退款|退货|换货|退换|换新|调换|置换|补发|地址|收货|联系人|电话|开票|发票|对账|财务|赔付|投诉|审批|催单|加急|价格|报价|多少钱|费用|运费|折扣|打折|几折|优惠|活动|促销|(?:打)?[一二三四五六七八九十\d]+折/.test(source) ||
+  return /订单|下单|发货|物流|快递|单号|售后|退款|退货|退回|换货|退换|换新|调换|置换|补发|地址|收货|联系人|电话|制作周期|定制周期|交期|时效|返厂|(?:坏的|损坏).*(?:轨道|导轨|配件|产品)|寄到店|业主.*(?:电话|联系方式)|开票|发票|对账|财务|赔付|投诉|审批|催单|加急|价格|报价|差价|补差|多少钱|费用|运费|折扣|打折|几折|优惠|活动|促销|(?:打)?[一二三四五六七八九十\d]+折/.test(source) ||
     looksLikeProductExchangeAfterSalesQuestion(source) ||
     looksLikeAfterSalesInstallAbnormalQuestion(source);
 }
@@ -4542,6 +4557,9 @@ module.exports = {
   extractReplyEvidenceTokens,
   validateReplyAgainstWiki,
   looksLikeProductQuestion,
+  looksLikeCustomerServiceQuestion,
+  shouldBlock,
+  shouldSkipReviewQueueForBlocked,
   looksLikeOrderConfigurationQuestion,
   looksLikeDiscontinuedLegacySeriesAfterSalesQuestion,
   looksLikeDrawerDividerMaterialQuestion,

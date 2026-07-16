@@ -5,6 +5,7 @@ const path = require('path');
 const fs = require('fs');
 const { DWClient, TOPIC_ROBOT } = require('dingtalk-stream');
 const { ConversationHistoryStore } = require('./lib/conversation-history');
+const { WecomCallbackCrypto, WecomKfClient, normalizeKfMessage, xmlValue } = require('./lib/wecom-kf');
 
 try { require('dotenv').config({ path: path.join(__dirname, '.env') }); } catch (e) {}
 
@@ -28,6 +29,12 @@ const CONFIG = {
   streamDebug: process.env.DINGTALK_STREAM_DEBUG === 'true',
   conversationContextTtlMs: parseInt(process.env.CONVERSATION_CONTEXT_TTL_MIN || '30', 10) * 60 * 1000,
   conversationContextMaxMessages: parseInt(process.env.CONVERSATION_CONTEXT_MAX_MESSAGES || '16', 10),
+  wecomKfEnabled: process.env.WECOM_KF_ENABLED === 'true',
+  wecomKfAutoSend: process.env.WECOM_KF_AUTO_SEND === 'true',
+  wecomKfCallbackToken: process.env.WECOM_KF_CALLBACK_TOKEN || '',
+  wecomKfCallbackAesKey: process.env.WECOM_KF_CALLBACK_AES_KEY || '',
+  wecomKfCorpId: process.env.WECOM_KF_CORP_ID || '',
+  wecomKfSecret: process.env.WECOM_KF_SECRET || '',
 };
 
 const HUMAN_REQUIRED_REPLY = process.env.HUMAN_REQUIRED_REPLY || '这个问题请联系人工处理。';
@@ -60,6 +67,15 @@ const conversationHistory = new ConversationHistoryStore({
   maxMessages: CONFIG.conversationContextMaxMessages,
 });
 let streamClient = null;
+const wecomKfCrypto = new WecomCallbackCrypto({
+  token: CONFIG.wecomKfCallbackToken,
+  encodingAesKey: CONFIG.wecomKfCallbackAesKey,
+  receiveId: CONFIG.wecomKfCorpId,
+});
+const wecomKfClient = new WecomKfClient({
+  corpId: CONFIG.wecomKfCorpId,
+  secret: CONFIG.wecomKfSecret,
+});
 
 function nowIso() {
   return new Date().toISOString();
@@ -429,6 +445,100 @@ async function processInbound(body) {
   return decision;
 }
 
+async function processWecomKfMessage(rawMessage) {
+  const inbound = normalizeKfMessage(rawMessage);
+  const auditBase = {
+    event: 'wecom_kf_inbound',
+    targetType: 'direct',
+    title: '企业微信客服测试',
+    conversationId: inbound.conversationId,
+    sender: inbound.msg.sender,
+    senderUserId: inbound.msg.senderUserId,
+    msgType: inbound.msgType,
+    content: normalizeReviewText(inbound.msg.content, 500),
+  };
+  appendBotAudit(auditBase);
+
+  // 微信客服 sync_msg 中 origin=3 才是客户主动发送；人工和系统事件绝不回灌给模型。
+  if (inbound.origin !== 3) {
+    const decision = { action: 'skip', reason: '不是客户主动发送的消息，已跳过' };
+    appendBotAudit({ ...auditBase, event: 'wecom_kf_decision', decision });
+    return decision;
+  }
+  if (inbound.msgType !== 'text' || !inbound.msg.content) {
+    const decision = { action: 'skip', reason: '当前仅接入企业微信客服文本；图片原图下载链路未配置，已跳过' };
+    appendBotAudit({ ...auditBase, event: 'wecom_kf_decision', decision });
+    return decision;
+  }
+
+  let decision;
+  try {
+    await ensureEngineReady();
+    const state = loadState();
+    const history = getConversationHistory(inbound.conversationId);
+    const send = CONFIG.wecomKfAutoSend
+      ? async ({ reply }) => {
+        const result = await wecomKfClient.sendText({
+          externalUserId: inbound.externalUserId,
+          openKfId: inbound.openKfId,
+          content: reply,
+          messageId: `kt_${Date.now().toString(36)}`,
+        });
+        return { success: true, channel: 'wecom_kf', data: result };
+      }
+      : undefined;
+    decision = await processSingleMessageForAutoReply({
+      state,
+      msg: inbound.msg,
+      messages: [...history, inbound.msg],
+      title: '企业微信客服测试',
+      conversationId: inbound.conversationId,
+      targetType: 'direct',
+      sourcePrefix: '企业微信客服测试',
+      send,
+    });
+  } catch (error) {
+    decision = { action: 'skip', reason: '企业微信客服消息处理失败', error: error.message };
+  }
+
+  rememberMessage(inbound.conversationId, inbound.msg, decision.action === 'reply' ? decision.reply : '');
+  appendBotAudit({ ...auditBase, event: 'wecom_kf_decision', decision });
+  return decision;
+}
+
+async function handleWecomKfCallback(plainXml) {
+  const event = xmlValue(plainXml, 'Event');
+  if (event !== 'kf_msg_or_event') {
+    appendBotAudit({ event: 'wecom_kf_event_ignored', reason: '不是客户消息事件，已跳过', eventType: event || 'unknown' });
+    return [];
+  }
+  if (!CONFIG.wecomKfEnabled) {
+    appendBotAudit({ event: 'wecom_kf_event_ignored', reason: '企业微信客服测试开关未启用，已仅记录事件' });
+    return [];
+  }
+  if (!wecomKfClient.isConfigured()) {
+    throw new Error('企业微信客服已启用，但缺少 CorpID 或 Secret。');
+  }
+
+  const eventToken = xmlValue(plainXml, 'Token');
+  const openKfId = xmlValue(plainXml, 'OpenKfId');
+  if (!eventToken || !openKfId) throw new Error('企业微信客服消息事件缺少 Token 或 OpenKfId。');
+
+  const decisions = [];
+  let cursor = '';
+  let hasMore = 1;
+  let pageCount = 0;
+  while (hasMore && pageCount < 10) {
+    const batch = await wecomKfClient.syncMessages({ token: eventToken, openKfId, cursor });
+    for (const item of batch.msg_list || []) decisions.push(await processWecomKfMessage(item));
+    hasMore = Number(batch.has_more || 0);
+    cursor = batch.next_cursor || '';
+    pageCount += 1;
+    if (hasMore && !cursor) break;
+  }
+  return decisions;
+}
+
 async function startStreamClient() {
   if (CONFIG.connectMode !== 'stream') {
     console.log('[Stream] 未启用，当前模式:', CONFIG.connectMode);
@@ -483,6 +593,7 @@ async function startStreamClient() {
 
 const app = express();
 app.use(express.json({ limit: '10mb' }));
+app.use(express.text({ type: ['text/xml', 'application/xml'], limit: '2mb' }));
 
 app.get('/', (req, res) => {
   res.json({
@@ -491,6 +602,12 @@ app.get('/', (req, res) => {
     aiProvider: ENGINE_CONFIG.aiProvider,
     connectMode: CONFIG.connectMode,
     streamConfigured: Boolean(CONFIG.appKey && CONFIG.appSecret),
+    wecomKf: {
+      enabled: CONFIG.wecomKfEnabled,
+      autoSend: CONFIG.wecomKfAutoSend,
+      callbackConfigured: wecomKfCrypto.isConfigured(),
+      apiConfigured: wecomKfClient.isConfigured(),
+    },
     groupOnlyAt: CONFIG.groupOnlyAt,
     maxMessageAgeMin: Math.round(CONFIG.maxMessageAgeMs / 60000),
   });
@@ -512,6 +629,36 @@ app.post('/dingtalk/webhook', (req, res) => {
   });
 });
 
+app.get('/wecom/kf/callback', (req, res) => {
+  try {
+    res.type('text/plain').send(wecomKfCrypto.verifyUrl(req.query));
+  } catch (error) {
+    appendBotAudit({ event: 'wecom_kf_callback_verify_failed', reason: error.message });
+    res.status(403).type('text/plain').send('forbidden');
+  }
+});
+
+app.post('/wecom/kf/callback', (req, res) => {
+  let plainXml;
+  try {
+    plainXml = wecomKfCrypto.decryptMessage(req.query, req.body);
+  } catch (error) {
+    appendBotAudit({ event: 'wecom_kf_callback_decrypt_failed', reason: error.message });
+    res.status(403).send('forbidden');
+    return;
+  }
+  // 回调先在 5 秒内确认收到；拉取正文和内部模拟/回复在后台继续执行。
+  res.type('text/plain').send('success');
+  setImmediate(() => {
+    handleWecomKfCallback(plainXml).then(decisions => {
+      console.log(`[WeCom KF] 已处理 ${decisions.length} 条：${decisions.map(item => item.action).join(',') || '无'}`);
+    }).catch(error => {
+      console.error('[WeCom KF] 处理失败:', error.stack || error.message);
+      appendBotAudit({ event: 'wecom_kf_callback_process_failed', reason: error.message, stack: String(error.stack || '').slice(0, 2000) });
+    });
+  });
+});
+
 function startServer() {
   setInterval(() => conversationHistory.prune(), 60 * 1000);
   return app.listen(CONFIG.port, () => {
@@ -523,6 +670,7 @@ function startServer() {
     console.log(`  群聊仅@回复: ${CONFIG.groupOnlyAt ? '是' : '否'}`);
     console.log(`  只处理 ${Math.round(CONFIG.maxMessageAgeMs / 60000)} 分钟内新消息`);
     console.log(`  AI Provider: ${ENGINE_CONFIG.aiProvider}`);
+    console.log(`  企业微信客服测试: ${CONFIG.wecomKfEnabled ? '启用（自动发送=' + CONFIG.wecomKfAutoSend + '）' : '未启用'}`);
     console.log('='.repeat(46));
     startStreamClient().catch(err => {
       console.error('[Stream] 启动失败:', err.stack || err.message);

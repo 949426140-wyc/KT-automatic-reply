@@ -6,6 +6,7 @@
     "bot": "node server.js",
     "auto-reply": "node auto-reply.js",
     "test": "node --test test/*.test.js",
+    "test:wecom": "node --test test/wecom-kf.test.js",
     "test:drawer": "node tools/test-drawer-customization-replies.js",
     "wiki:build": "node tools/build-llm-wiki.js",
     "wiki:test": "node tools/test-llm-wiki.js",
