@@ -1,97 +1,41 @@
-# 钉钉自动回复资料总览
+# KT automatic reply
 
-> 整理日期：2026-06-24
+酷太钉钉群产品问题自动回复服务。它通过钉钉 Stream 接收消息，先完成员工、订单/物流/售后等业务过滤和上下文判定，再以结构化产品知识与 LLM Wiki 生成或审核产品回复。
 
-## 先看哪几个文件
+## 仓库边界
 
-1. `钉钉自动回复规则.md`：自动回复边界、过滤规则、私信/群聊口径、启停方式。
-2. `auto-reply.js`：当前主服务脚本，负责读取钉钉消息、调用 AI、写入待确认队列/待回复队列或发送回复。
-3. `.env`：运行配置，包含开关、模型、时间窗口等敏感配置。
-4. `产品知识库\酷太客服自动回复知识库.md`：客服回复规则、禁答边界和业务口径。
-5. `D:\酷太\产品知识库\01_MD章节矩阵` 与 `D:\酷太\产品知识库\05_数据与图片\酷太产品图文知识库.json`：当前产品事实源。
-   - 产品应用当前源文件固定为 `D:\酷太\产品知识库\01_MD章节矩阵\08A-全屋收纳产品应用.md`。
-   - 空间痛点、场景诊断和方案取舍已迁入 `D:\酷太\AI规划师训练\01_知识库源文件\空间痛点与诊断规则.md`。
-6. `归档\旧产品知识快照_20260628\酷太产品图文知识库.md`：旧单文件快照，仅作历史参考，不参与自动读取。
-7. `知识体系框架.md`：产品、客服、订单与售后知识的结构化主文档。
+此仓库只保存源码、测试、部署配置和运行文档。下列数据位于仓库同级目录，且不会提交至 GitHub：
 
-## 当前逻辑
+- `../产品知识库`：Obsidian 产品事实、结构化产品卡、客服规则、LLM Wiki。
+- `../图片库`：产品原图与图片索引。
+- `.env`、`data/`、`runtime/`、日志和审计结果：本机机密或运行状态。
 
-- 群聊：保持较严格口径，只在产品知识明确、上下文足够时回复。
-- 私信：口径放宽，能大致判断并接住问题时优先直接回复。
-- 时间窗口：只处理最近 10 分钟内的消息，避免翻旧消息。
-- 待确认：不敢直接回复或可能误导的内容写入 `产品知识库\酷太自动回复待确认.md`。
-- AI 回复：支持 `AI_PROVIDER=deepseek / dify / auto`。接入 Dify 后，钉钉扫描、过滤、去重仍由本地脚本负责，产品文字知识由 Dify 应用检索和生成候选回复。
-- 待回复队列：`PENDING_REVIEW_MODE=true` 时，AI 只负责扫描候选，写入 `待回复队列.json/.md`，由 Codex 审核后再发送。
-- 状态记忆：`auto-reply-state.json` 记录已回复、已跳过和冷却信息；`data\` 保存对话历史与共享上下文。
+更详细的路径说明见 [目录说明.md](目录说明.md)。
 
-## 从旧对话保留下来的关键要求
+## 本地运行
 
-- 后台启动不能弹黑色控制台窗口，默认使用 `launcher.vbs` 静默启动。
-- 谷物盒这类未录入尺寸的数据，不自动编答案；知识库没数据时不回复是正确行为。
-- 中枢阁、翼枢阁、倾松抽、子母抽等标准产品的尺寸确认，不能静默 `SKIP`；拿不准也至少进入待确认。
-- 电动升降机“收不回去、有空隙”等基础故障排查类问题，至少进入待确认，避免无声漏掉。
-- 服务中断是漏回主因之一，后续排查先看进程与最新日志时间。
-
-## 资料整理结果
-
-- 已合并：`知识体系框架（详细版）.md` 升级为 `知识体系框架.md`，作为唯一主入口。
-- 已归档：`知识体系框架（概念版）.md` 移到 `归档\知识体系框架（概念版-已并入主文档）.md`，仅作参考。
-- 已迁入：原 `D:\Claude code\客服知识库` 的核心脚本、配置、知识库、学习数据、状态和对话数据。
-- 已迁入：原 `D:\Claude code\产品知识库` 中与自动回复直接相关的 Markdown/JSON 资料。
-- 已清理：`node_modules`、运行日志、`.pid`、旧 HTML 展示页和空壳旧目录。
-
-## 运行方式
-
-首次迁移后如本目录没有 `node_modules`，先在当前目录运行：
+1. 复制 `.env.example` 为 `.env`，填入钉钉和模型配置。
+2. 保持本仓库与 `产品知识库`、`图片库` 位于同一父目录。
+3. 运行：
 
 ```powershell
-npm install
+docker compose up -d --build
+docker compose ps
 ```
 
-后台静默启动：
+## 验证
+
+基础测试：
 
 ```powershell
-wscript "D:\酷太\钉钉自动回复\launcher.vbs"
+npm test
 ```
 
-前台调试启动：
+容器内规则回归：
 
 ```powershell
-Set-Location -LiteralPath "D:\酷太\钉钉自动回复"
-node auto-reply.js
+docker compose exec -T kutai-dingtalk-bot node tools/test-llm-wiki-safeguards.js
+docker compose exec -T kutai-dingtalk-bot node tools/test-drawer-customization-replies.js
 ```
 
-接入 Dify：
-
-```powershell
-# 1. 在 Dify 创建 Chatflow/聊天助手应用，绑定“酷太知识库”
-# 2. 进入应用的 Access the API，复制应用 API Key
-# 3. 写入 D:\酷太\钉钉自动回复\.env
-AI_PROVIDER=dify
-DIFY_BASE_URL=http://localhost:8088
-DIFY_API_KEY=app-xxxx
-DIFY_APP_TYPE=chat
-```
-
-待回复扫描启动（不自动发送）：
-
-```powershell
-Set-Location -LiteralPath "D:\酷太\钉钉自动回复"
-powershell -ExecutionPolicy Bypass -File .\start-pending-reply-scan.ps1
-```
-
-审核/发送队列：
-
-```powershell
-node pending-replies.js list
-node pending-replies.js show <队列ID>
-node pending-replies.js send <队列ID> --text "审核后的回复"
-node pending-replies.js skip <队列ID> --reason "跳过原因"
-```
-
-## 维护原则
-
-- 新增产品知识优先写入 `D:\酷太\产品知识库\01_MD章节矩阵` 或结构化 JSON；产品应用名、收纳物品和效果图写入 `08A-全屋收纳产品应用.md`；自动回复会优先读取当前矩阵精简源和 JSON 命中产品速查。
-- 新增客服边界和话术优先写入 `产品知识库\酷太客服自动回复知识库.md`。
-- 临时不确定的问题先进 `产品知识库\酷太自动回复待确认.md`，确认后再沉淀到正式知识库。
-- 日志、pid、依赖目录不作为资料保存；需要时由服务运行或 `npm install` 自动生成。
+产品事实、尺寸公式、安装边界必须维护在 `../产品知识库`；本地程序只维护消息过滤、队列、平台连接、上下文和回复质量控制。
