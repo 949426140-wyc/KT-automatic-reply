@@ -2,6 +2,8 @@ node_modules/
 .env
 data/
 runtime/
+self-audit/
+.codex-task-dedup.txt
 *.jsonl
 *.log
 *.pid

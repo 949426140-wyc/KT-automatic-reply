@@ -11,6 +11,7 @@ const { LlmWiki } = require('./lib/llm-wiki');
 const { quoteForShell } = require('./lib/shell');
 const { renderReviewQueueMarkdown } = require('./lib/review-queue');
 const { parseDwsJson } = require('./lib/dws-client');
+const { requestJson } = require('./lib/ai-client');
 const AUTO_REPLY_RULES = require('./config/auto-reply-rules.json');
 const {
   downloadOriginalMedia,
@@ -440,9 +441,10 @@ fs.mkdirSync(RUNTIME_DIR, { recursive: true });
 const STATE_FILE = path.join(RUNTIME_DIR, 'auto-reply-state.json');
 const DATA_DIR = path.join(__dirname, 'data');
 const CONV_DIR = path.join(DATA_DIR, 'conversations');
-const PRODUCT_KB_DIR = path.join(__dirname, '产品知识库');
 // 当前产品事实源已迁入 Obsidian 知识库；容器中由 PRODUCT_KB_ROOT 覆盖为 /app/knowledge。
 const CURRENT_PRODUCT_KB_ROOT = process.env.PRODUCT_KB_ROOT || path.resolve(__dirname, '..', '产品知识库');
+// 客服规则与待确认队列属于知识数据，不保存在源码仓库内。
+const PRODUCT_KB_DIR = process.env.BOT_KB_DIR || path.join(CURRENT_PRODUCT_KB_ROOT, '03_客服自动回复资料');
 const CURRENT_PRODUCT_MATRIX_DIR = process.env.PRODUCT_MATRIX_DIR || path.join(CURRENT_PRODUCT_KB_ROOT, '01_MD章节矩阵');
 const CURRENT_PRODUCT_DATA_DIR = process.env.PRODUCT_DATA_DIR || path.join(CURRENT_PRODUCT_KB_ROOT, '05_数据与图片');
 const AI_PLANNER_SOURCE_DIR = process.env.AI_PLANNER_SOURCE_DIR || CURRENT_PRODUCT_KB_ROOT;
@@ -962,55 +964,6 @@ function loadCurrentUser() {
 }
 
 // ====== AI 调用 ======
-function requestJson(urlText, body, headers, timeoutMs) {
-  return new Promise((resolve) => {
-    const url = new URL(urlText);
-    const client = url.protocol === 'http:' ? http : https;
-    let settled = false;
-    const payload = JSON.stringify(body);
-    const req = client.request({
-      hostname: url.hostname, path: url.pathname + url.search,
-      port: url.port || undefined,
-      method: 'POST',
-      headers: {
-        ...headers,
-        'Content-Type': 'application/json',
-        'Content-Length': Buffer.byteLength(payload),
-      },
-      timeout: timeoutMs,
-    }, (res) => {
-      let data = '';
-      res.on('data', c => data += c);
-      res.on('end', () => {
-        if (settled) return;
-        settled = true;
-        try {
-          const parsed = JSON.parse(data || '{}');
-          if (res.statusCode >= 400) {
-            resolve({ ok: false, statusCode: res.statusCode, body: parsed, raw: data });
-            return;
-          }
-          resolve({ ok: true, statusCode: res.statusCode, body: parsed, raw: data });
-        } catch {
-          resolve({ ok: false, statusCode: res.statusCode, body: null, raw: data });
-        }
-      });
-    });
-    req.on('timeout', () => {
-      if (settled) return;
-      settled = true;
-      req.destroy();
-      resolve({ ok: false, timeout: true, body: null, raw: '' });
-    });
-    req.on('error', (e) => {
-      if (settled) return;
-      settled = true;
-      resolve({ ok: false, error: e.message, body: null, raw: '' });
-    });
-    req.write(payload);
-    req.end();
-  });
-}
 
 async function callDeepSeekAI(systemPrompt, userPrompt) {
   if (!CONFIG.aiKey) {
